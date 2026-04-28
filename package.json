@@ -1,0 +1,16 @@
+{
+  "name": "personal-brand-dashboard",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Dashboard editorial para marca personal con Express + SQLite + uploads de imágenes.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.9.0",
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  }
+}
