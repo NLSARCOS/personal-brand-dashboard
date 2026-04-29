@@ -1,0 +1,175 @@
+<!-- DATA POSTER — 12 variantes -->
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.slide{width:1080px;height:1350px;background:#0d0d0d;color:#f7f7f7;font-family:Inter,sans-serif;position:relative;overflow:hidden;padding:60px}
+.num{position:absolute;top:48px;left:60px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#555;font-weight:600}
+.lime{color:#a3e635}
+.strip{position:absolute;left:0;right:0;background:#a3e635;color:#0d0d0d;display:flex;align-items:center;padding:0 60px;font-weight:900}
+.divider{border-top:1px solid #3f3f46}
+
+/* V1: HOOK HERO */
+.hook-hero .big{font-size:180px;line-height:.72;font-weight:900;letter-spacing:-.09em;margin-top:60px}
+.hook-hero .strip{top:560px;height:72px;font-size:30px}
+.hook-hero .list{position:absolute;left:60px;right:60px;bottom:60px;display:grid;gap:20px}
+.hook-hero .item{display:grid;grid-template-columns:90px 1fr;align-items:center;padding-top:20px}
+.hook-hero .item b{font-family:'IBM Plex Mono';font-size:32px;color:#a3e635;font-weight:700}
+.hook-hero .item span{font-size:30px;font-weight:800;letter-spacing:-.03em}
+
+/* V2: HOOK QUESTION */
+.hook-question{display:flex;align-items:center;justify-content:center;text-align:center}
+.hook-question h1{font-size:88px;font-weight:900;letter-spacing:-.07em;line-height:.82;max-width:90%}
+
+/* V3: CONTEXT NEWS */
+.context-news h1{font-size:78px;font-weight:900;letter-spacing:-.07em;line-height:.8;margin-top:60px}
+.context-news .body{font-size:28px;color:#a1a1aa;margin-top:40px;line-height:1.3;max-width:85%}
+.context-news .source{position:absolute;bottom:60px;left:60px;font-family:'IBM Plex Mono';font-size:16px;color:#555}
+
+/* V4: CONTEXT SPLIT */
+.context-split{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+.context-split .left{background:#a3e635;color:#0d0d0d;padding:60px;display:flex;flex-direction:column;justify-content:center}
+.context-split .left h1{font-size:68px;font-weight:900;letter-spacing:-.06em;line-height:.82}
+.context-split .right{padding:60px;display:flex;flex-direction:column;justify-content:center}
+.context-split .right p{font-size:28px;font-weight:600;line-height:1.3;color:#d4d4d8}
+
+/* V5: DEVELOP NUMBER */
+.develop-number .big{font-size:380px;font-weight:900;line-height:.65;letter-spacing:-.1em;color:rgba(163,230,53,.15)}
+.develop-number .point{font-size:46px;font-weight:900;letter-spacing:-.04em;margin-top:-80px;position:relative;max-width:85%;line-height:1}
+.develop-number .detail{position:absolute;bottom:60px;left:60px;right:60px;font-size:22px;color:#71717a;line-height:1.3}
+
+/* V6: DEVELOP CHECKLIST */
+.develop-checklist h2{font-size:52px;font-weight:900;letter-spacing:-.05em;margin-top:40px;margin-bottom:50px;line-height:.88}
+.develop-checklist .items{display:grid;gap:16px}
+.develop-checklist .item{display:grid;grid-template-columns:80px 1fr;align-items:center;border-top:1px solid #3f3f46;padding-top:20px}
+.develop-checklist .item b{font-family:'IBM Plex Mono';font-size:32px;color:#a3e635;font-weight:700}
+.develop-checklist .item span{font-size:26px;font-weight:800}
+
+/* V7: GRID 4 */
+.grid-4 .title{font-size:48px;font-weight:900;letter-spacing:-.05em;margin-top:40px;margin-bottom:40px;line-height:.88}
+.grid-4 .cells{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid-4 .cell{border:2px solid #3f3f46;padding:40px;border-radius:8px}
+.grid-4 .cell.hi{border-color:#a3e635;background:rgba(163,230,53,.05)}
+.grid-4 .cell b{display:block;font-family:'IBM Plex Mono';font-size:36px;color:#a3e635;margin-bottom:10px}
+.grid-4 .cell span{font-size:22px;font-weight:700;line-height:1.2}
+
+/* V8: GRID LIST */
+.grid-list h2{font-size:52px;font-weight:900;letter-spacing:-.05em;margin-top:40px;margin-bottom:40px;line-height:.88}
+.grid-list .rows{display:grid;gap:0}
+.grid-list .row{display:grid;grid-template-columns:90px 1fr;border-top:1px solid #3f3f46;padding:28px 0;align-items:center}
+.grid-list .row b{font-family:'IBM Plex Mono';font-size:36px;color:#a3e635;font-weight:700}
+.grid-list .row span{font-size:28px;font-weight:800}
+
+/* V9: TAKE INVERTED */
+.take-inverted{background:#a3e635;color:#0d0d0d}
+.take-inverted .label{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:rgba(0,0,0,.4);margin-top:40px;margin-bottom:30px}
+.take-inverted h1{font-size:68px;font-weight:900;letter-spacing:-.06em;line-height:.82}
+
+/* V10: TAKE ACCENT */
+.take-accent .label{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:#a3e635;margin-top:40px;margin-bottom:30px}
+.take-accent h1{font-size:68px;font-weight:900;letter-spacing:-.06em;line-height:.82}
+.take-accent h1 b{color:#a3e635}
+
+/* V11: CLOSE TAGS */
+.close-tags{display:flex;flex-direction:column;justify-content:space-between}
+.close-tags .tags{font-size:44px;font-weight:900;line-height:1.5;color:#a3e635;margin-top:100px}
+.close-tags .arrow{font-size:180px;text-align:right;color:#3f3f46}
+
+/* V12: CLOSE SUMMARY */
+.close-summary h2{font-size:44px;font-weight:900;letter-spacing:-.04em;margin-top:40px;margin-bottom:50px;line-height:.9}
+.close-summary .points{display:grid;gap:24px}
+.close-summary .pt{border-left:6px solid #a3e635;padding-left:24px}
+.close-summary .pt b{font-size:28px;font-weight:900;display:block}.close-summary .pt span{font-size:20px;color:#71717a}
+.close-summary .cta{position:absolute;bottom:60px;left:60px;font-size:22px;font-weight:800;color:#a3e635}
+</style></head><body>
+
+<div class="slide hook-hero" data-variant="hook-hero">
+  <div class="num">01</div>
+  <div class="big">NO<br><span class="lime">SHIP</span></div>
+  <div class="strip">sin estos 3 controles</div>
+  <div class="list">
+    <div class="item divider"><b>01</b><span>métrica de éxito definida</span></div>
+    <div class="item divider"><b>02</b><span>evaluación fuera del demo</span></div>
+    <div class="item divider"><b>03</b><span>rollback operativo real</span></div>
+  </div>
+</div>
+
+<div class="slide hook-question" data-variant="hook-question" style="display:none"><div class="num">01</div>
+  <h1>¿CUÁNTAS <span class="lime">DECISIONES</span> TOMA TU IA SIN QUE NADIE LAS REVISE?</h1>
+</div>
+
+<div class="slide context-news" data-variant="context-news" style="display:none"><div class="num">02</div>
+  <h1>EL <span class="lime">73%</span> DE LOS PILOTOS DE IA NO LLEGAN A PRODUCCIÓN</h1>
+  <div class="body">No por falta de modelo. Por falta de infraestructura de decisión alrededor del modelo.</div>
+  <div class="source">gartner report — 2025</div>
+</div>
+
+<div class="slide context-split" data-variant="context-split" style="display:none">
+  <div class="left"><h1>DATO DURO</h1></div>
+  <div class="right"><p>De cada 10 empresas que implementan agentes IA, solo 2 tienen un framework de gobernanza operativo. Las otras 8 improvisan.</p></div>
+</div>
+
+<div class="slide develop-number" data-variant="develop-number" style="display:none"><div class="num">05</div>
+  <div class="big">01</div>
+  <div class="point">DEFINE <span class="lime">MÉTRICA DE ÉXITO</span> ANTES DE LANZAR</div>
+  <div class="detail">Sin métrica no hay iteración. Sin iteración no hay mejora. Sin mejora, tu IA es un gasto.</div>
+</div>
+
+<div class="slide develop-checklist" data-variant="develop-checklist" style="display:none"><div class="num">04</div>
+  <h2>CHECKLIST <span class="lime">MÍNIMO</span></h2>
+  <div class="items">
+    <div class="item"><b>01</b><span>Métrica de éxito definida</span></div>
+    <div class="item"><b>02</b><span>Evaluación fuera del demo</span></div>
+    <div class="item"><b>03</b><span>Rollback operativo</span></div>
+    <div class="item"><b>04</b><span>Logs de decisión</span></div>
+  </div>
+</div>
+
+<div class="slide grid-4" data-variant="grid-4" style="display:none"><div class="num">07</div>
+  <div class="title">4 SEÑALES DE QUE TU IA <span class="lime">NO ESTÁ LISTA</span></div>
+  <div class="cells">
+    <div class="cell"><b>01</b><span>No tienes métrica clara</span></div>
+    <div class="cell hi"><b>02</b><span>Solo probaste en demo</span></div>
+    <div class="cell hi"><b>03</b><span>No hay rollback</span></div>
+    <div class="cell"><b>04</b><span>No registras decisiones</span></div>
+  </div>
+</div>
+
+<div class="slide grid-list" data-variant="grid-list" style="display:none"><div class="num">08</div>
+  <h2>FRAMEWORK <span class="lime">MÍNIMO</span></h2>
+  <div class="rows">
+    <div class="row"><b>01</b><span>Definir métrica de éxito</span></div>
+    <div class="row"><b>02</b><span>Evaluar fuera del demo</span></div>
+    <div class="row"><b>03</b><span>Rollback operativo real</span></div>
+    <div class="row"><b>04</b><span>Registro de decisiones</span></div>
+  </div>
+</div>
+
+<div class="slide take-inverted" data-variant="take-inverted" style="display:none"><div class="num" style="color:rgba(0,0,0,.3)">09</div>
+  <div class="label">MI TAKE</div>
+  <h1>SI TU IA NO TIENE ROLLBACK, NO ES PRODUCCIÓN. ES UN EXPERIMENTO CON DATOS REALES.</h1>
+</div>
+
+<div class="slide take-accent" data-variant="take-accent" style="display:none"><div class="num">09</div>
+  <div class="label">OPINIÓN DIRECTA</div>
+  <h1>EL PROBLEMA NO ES LA IA. ES QUE <b>NADIE DEFINIÓ QUÉ PASA CUANDO FALLA</b>.</h1>
+</div>
+
+<div class="slide close-tags" data-variant="close-tags" style="display:none"><div class="num">12</div>
+  <div class="tags">#AIProduction<br>#MLOps<br>#AIGovernance<br>#ProductionReady<br>#DataOps</div>
+  <div class="arrow">→</div>
+</div>
+
+<div class="slide close-summary" data-variant="close-summary" style="display:none"><div class="num">10</div>
+  <h2>RESUMEN:</h2>
+  <div class="points">
+    <div class="pt"><b>Métrica antes del piloto</b><span>Sin métrica no hay iteración</span></div>
+    <div class="pt"><b>Producción ≠ laboratorio</b><span>Evalúa con datos reales</span></div>
+    <div class="pt"><b>Rollback desde el día uno</b><span>Plan de reversión operativo</span></div>
+  </div>
+  <div class="cta">¿TU IA TIENE ESTOS 3? → COMENTA</div>
+</div>
+
+<script>
+function showVariant(name){document.querySelectorAll('.slide').forEach(s=>s.style.display='none');document.querySelector(`[data-variant="${name}"]`).style.display=''}
+</script><script src="/templates/preview.js"></script></body></html>

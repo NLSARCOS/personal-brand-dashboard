@@ -1,0 +1,117 @@
+{
+  "version": "2.0",
+  "aspect_ratio": "4:5",
+  "global_rules": [
+    "Cada slide de un carrusel debe usar un layout DIFERENTE — nunca repetir la misma estructura",
+    "Los titulares deben ser enormes y ocupar el espacio — nunca pequeños frente al canvas",
+    "Composición densa — evitar zonas muertas sin intención",
+    "Palabras clave en color de acento para guiar la lectura",
+    "Numeración visible en esquina superior (01, 02, 03...)",
+    "NO usar palabras meta: carrusel, post, slide, lead magnet, LinkedIn, marca personal",
+    "El resultado debe verse editorial/tech premium, nunca genérico ni plantilla",
+    "Container queries (cqw) para responsive en canvas 4:5",
+    "Progresión narrativa: hook → contexto → desarrollo → checklist/marco → take caliente → CTA"
+  ],
+
+  "slide_variants": {
+    "hook": {
+      "description": "Primer slide — gancho visual máximo. Frase provocadora o claim fuerte.",
+      "layouts": [
+        "HERO_GIGANTE: Titular ocupa 70% del canvas. Frase corta, palabras clave en acento. Subtítulo pequeño abajo.",
+        "PREGUNTA_BOLD: Una pregunta enorme que ocupa todo el slide. Sin subtítulo. Solo la pregunta.",
+        "DATO_IMPACTO: Un número o dato gigante arriba (ej: 73%). Contexto en texto más pequeño abajo.",
+        "DECLARACION: Frase tipo manifiesto en mayúsculas. Una palabra en acento. Borde grueso alrededor."
+      ]
+    },
+    "contexto": {
+      "description": "Slide 2-3 — contexto de la noticia o situación. Más texto, más explicativo.",
+      "layouts": [
+        "NOTICIA: Titular mediano arriba. Párrafo explicativo abajo. Fuente citada en texto pequeño.",
+        "SPLIT_VERTICAL: Mitad izquierda con titular. Mitad derecha con texto explicativo. Línea divisora.",
+        "QUOTE_BLOCK: Cita textual con comillas grandes. Autor/fuente abajo. Fondo ligeramente diferente.",
+        "COMPARATIVA: Dos bloques lado a lado (antes/después, viejo/nuevo). Titular arriba."
+      ]
+    },
+    "desarrollo": {
+      "description": "Slides 4-6 — puntos clave, uno por slide. Número grande + punto.",
+      "layouts": [
+        "NUMERO_PUNTO: Número enorme (01, 02...) + frase bold + explicación corta debajo.",
+        "CHECKLIST_ITEM: Frase bold como título + 2-3 bullets de apoyo. Número en esquina.",
+        "FULLTEXT_BOLD: Todo el slide es una frase bold grande con una palabra en acento.",
+        "DATO_APOYO: Métrica/dato arriba + explicación de por qué importa abajo."
+      ]
+    },
+    "marco": {
+      "description": "Slide 7-8 — framework, checklist, o estructura aplicable.",
+      "layouts": [
+        "GRID_4: Cuatro celdas en grid 2x2. Cada celda con número + punto corto.",
+        "LISTA_NUMERADA: 3-5 puntos numerados apilados. Tipografía bold. Número en acento.",
+        "DIAGRAMA_SIMPLE: Flujo lineal con flechas (A → B → C). Cada nodo en caja.",
+        "TABLA: Dos columnas (Sí/No, Hacer/Evitar). Headers contrastados."
+      ]
+    },
+    "take_caliente": {
+      "description": "Slide 9 — opinión personal fuerte. Fondo invertido (oscuro si el carrusel es claro, o acento).",
+      "layouts": [
+        "FONDO_ACENTO: Fondo en color acento. Texto en blanco/negro. Opinión directa sin adornos.",
+        "FONDO_INVERTIDO: Si el carrusel es claro → fondo negro. Si oscuro → fondo blanco. Frase contundente.",
+        "MARCO_DESTACADO: Borde grueso en acento. Frase principal enorme. Label 'MI TAKE' arriba.",
+        "CONTRASTE_TOTAL: Todo el slide es una frase en mayúsculas gigantes. Sin más. Solo el golpe."
+      ]
+    },
+    "cierre": {
+      "description": "Slide final — CTA, resumen, o hashtags.",
+      "layouts": [
+        "HASHTAGS_CTA: Hashtags relevantes + flecha →. Limpio, sin saturar.",
+        "RESUMEN_3: Tres puntos clave del carrusel resumidos. Tipografía media.",
+        "ICONO_MENSAJE: Icono/emoji grande + mensaje de cierre corto. Directo.",
+        "PREGUNTA_FINAL: Pregunta abierta para comentarios + flecha o indicador de interacción."
+      ]
+    }
+  },
+
+  "styles": {
+    "premium-editorial": {
+      "prompt": "Genera una pieza visual estilo revista tech premium. Fondo oscuro con gradiente radial sutil (del tipo #223b7a al centro → #07101f → #05070d). Borde interior sutil rgba(255,255,255,.16). Headline en Space Grotesk, 64px+, tracking -0.06em, line-height 0.9. Subtítulo/deck en 25px, color #b9c7e6. Bloques de apoyo inferiores en grid de 3 columnas con fondo glass rgba(255,255,255,.07) y borde rgba(255,255,255,.12). Etiqueta tipo 'NS / AI OPS / 01' en esquina superior derecha en IBM Plex Mono. Sensación: portada de revista técnica de élite.",
+      "colors": { "bg": "radial-gradient(circle at 20% 0%, #223b7a, #07101f 38%, #05070d)", "text": "#f4f7ff", "accent": "#8fb6ff", "deck": "#b9c7e6", "glass": "rgba(255,255,255,.07)" },
+      "fonts": { "headline": "Space Grotesk 700", "body": "Inter 400", "mono": "IBM Plex Mono" },
+      "use_for": ["análisis de noticia", "piezas de autoridad", "insights fuertes", "arquitectura/estrategia"]
+    },
+
+    "swiss-brutal": {
+      "prompt": "Genera una pieza estilo Swiss Brutal / tipografía internacional. Fondo claro #f5f1e8 (papel). Texto negro #090909. Acento rojo #e11d48. Titulares en Inter 900 (black), 78px+, uppercase, tracking -0.075em, line-height 0.82. Regla negra gruesa (10px height, 55% width) arriba del título. Sistema de cajas/celdas con bordes gruesos 3px solid #090909 en grid inferior. Celdas alternan fondo blanco y negro. Números bold 34px en cada celda. IMPORTANTE: variar el layout entre slides — usar las variantes hook/contexto/desarrollo/take/cierre. En el take caliente, invertir fondo a negro con texto blanco y acento rojo. Tensión visual fuerte, como diseño tipográfico suizo de los 60s modernizado.",
+      "colors": { "bg": "#f5f1e8", "text": "#090909", "accent": "#e11d48", "cell_dark": "#090909", "cell_light": "#ffffff" },
+      "fonts": { "headline": "Inter 900", "body": "Inter 500", "mono": "IBM Plex Mono" },
+      "use_for": ["seguridad", "checklist", "advertencias", "comparativas", "takes duros"],
+      "carousel_structure": "12 slides en grid variable. Slides 1-3: hook + contexto (titulares gigantes). Slides 4-8: puntos numerados (01-04) con número grande + explicación. Slide 9: take caliente con fondo invertido o acento. Slides 10-11: cierre/refuerzo. Slide 12: hashtags + CTA flecha."
+    },
+
+    "dashboard": {
+      "prompt": "Genera una pieza estilo interfaz SaaS / product dashboard. Fondo #07111f. Ventana principal con borde rgba(148,163,184,.24), border-radius 20px, fondo glass rgba(15,23,42,.72), shadow 0 24px 80px. Topbar con 3 dots (10px, color #38bdf8). Headline en Inter 800, 46px, tracking -0.05em. KPIs en grid 3 columnas con cajas glass y números en #7dd3fc. Zona de flujo inferior con nodos (pills con border-radius 999px, fondo #0ea5e9, texto #00121f, font-weight 800). Radial gradient sutil de #38bdf8 en esquina superior. Sensación: panel de control de un producto real.",
+      "colors": { "bg": "#07111f", "text": "#eaf2ff", "accent": "#38bdf8", "kpi": "#7dd3fc", "node": "#0ea5e9", "glass": "rgba(15,23,42,.72)" },
+      "fonts": { "headline": "Inter 800", "body": "Inter 400", "mono": "IBM Plex Mono" },
+      "use_for": ["operación", "métricas", "workflows", "sistemas", "automatización"]
+    },
+
+    "blueprint": {
+      "prompt": "Genera una pieza estilo blueprint técnico / arquitectura de sistemas. Fondo #050812. Grid técnico en background con líneas cyan rgba(34,211,238,.09) cada 42px. Headline en IBM Plex Mono 600, 44px, tracking -0.04em, color #e6fffb. Nodos/cajas con borde 1.5px solid #22d3ee, fondo rgba(8,47,73,.48), shadow 0 0 24px rgba(34,211,238,.12), border-radius 12px. Conectores SVG curvos entre nodos. Sensación: diagrama de arquitectura dibujado en papel técnico azul.",
+      "colors": { "bg": "#050812", "text": "#dffcff", "accent": "#22d3ee", "node_bg": "rgba(8,47,73,.48)", "grid": "rgba(34,211,238,.09)" },
+      "fonts": { "headline": "IBM Plex Mono 600", "body": "IBM Plex Mono 400" },
+      "use_for": ["arquitecturas", "guardrails", "flujos complejos", "decisiones de infraestructura"]
+    },
+
+    "founder-note": {
+      "prompt": "Genera una pieza estilo nota de autor / founder note. Fondo blanco #fff. Papel interior #fbfaf7 con borde 1px solid #ded8cd, border-radius 6px, shadow 0 30px 80px rgba(0,0,0,.12), rotado ligeramente transform:rotate(-1deg). Headline en Space Grotesk 700, 58px, tracking -0.06em, line-height 0.95, color #151515. Cita con border-left 6px solid #151515, padding-left 24px, font-size 28px. Scribble decorativo (elipse con borde grueso, rotada). Sensación: nota técnica escrita por el fundador.",
+      "colors": { "bg": "#ffffff", "paper": "#fbfaf7", "text": "#151515", "border": "#ded8cd", "accent": "#151515" },
+      "fonts": { "headline": "Space Grotesk 700", "body": "Inter 400" },
+      "use_for": ["opinión personal", "lección aprendida", "reflexión", "postura frente a tendencia"]
+    },
+
+    "data-poster": {
+      "prompt": "Genera una pieza estilo data poster / póster de impacto. Fondo negro #0d0d0d. Número o palabra ENORME: 160px, font-weight 900, tracking -0.09em, line-height 0.75. Palabra clave en acento verde limón #a3e635. Strip horizontal de color sólido #a3e635 cruzando el canvas con texto negro bold 30px. Lista inferior con items en grid de 2 columnas (número mono en acento + texto bold 30px), separados por border-top 1px solid #3f3f46. Sensación: póster de datos contundente, lectura en 2 segundos.",
+      "colors": { "bg": "#0d0d0d", "text": "#f7f7f7", "accent": "#a3e635", "divider": "#3f3f46" },
+      "fonts": { "headline": "Inter 900", "body": "Inter 700", "mono": "IBM Plex Mono" },
+      "use_for": ["cifras", "claims fuertes", "listas cortas", "mensajes de alto impacto"]
+    }
+  }
+}

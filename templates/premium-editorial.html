@@ -1,0 +1,195 @@
+<!--
+  PREMIUM EDITORIAL — 12 variantes de slide
+  Hermes: abre este archivo, cambia data-variant y el contenido, screenshot a 1080x1350
+-->
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.slide{width:1080px;height:1350px;background:radial-gradient(circle at 20% 0%,#223b7a 0,#07101f 38%,#05070d 100%);color:#f4f7ff;font-family:Inter,sans-serif;position:relative;overflow:hidden;padding:60px}
+.slide:before{content:"";position:absolute;inset:28px;border:1px solid rgba(255,255,255,.12);border-radius:14px;pointer-events:none;z-index:1}
+.num{position:absolute;top:48px;left:60px;font-family:'IBM Plex Mono',monospace;font-size:14px;color:#6b8fd4;letter-spacing:.12em;z-index:2}
+.issue{position:absolute;top:48px;right:60px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#4a6a9e;letter-spacing:.1em;z-index:2}
+.accent{color:#8fb6ff}
+.glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:28px}
+
+/* V1: HOOK HERO */
+.hook-hero h1{font-family:'Space Grotesk',sans-serif;font-size:92px;line-height:.86;letter-spacing:-.06em;font-weight:700;margin-top:100px}
+.hook-hero .deck{font-size:28px;color:#9aafda;margin-top:28px;line-height:1.2;max-width:85%}
+.hook-hero .bars{position:absolute;left:60px;right:60px;bottom:60px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.hook-hero .bar b{display:block;font-size:28px;color:#fff;font-weight:800}.hook-hero .bar span{color:#6b8fd4;font-size:14px}
+
+/* V2: HOOK QUESTION */
+.hook-question{display:flex;align-items:center;justify-content:center;text-align:center}
+.hook-question h1{font-family:'Space Grotesk';font-size:78px;line-height:.88;letter-spacing:-.06em;font-weight:700;max-width:88%}
+
+/* V3: CONTEXT NEWS */
+.context-news h1{font-family:'Space Grotesk';font-size:72px;line-height:.86;letter-spacing:-.05em;font-weight:700;margin-top:80px}
+.context-news .body{font-size:26px;color:#9aafda;margin-top:30px;line-height:1.3;max-width:85%}
+.context-news .source{position:absolute;bottom:60px;left:60px;font-family:'IBM Plex Mono';font-size:16px;color:#4a6a9e}
+
+/* V4: CONTEXT SPLIT */
+.context-split{display:grid;grid-template-rows:1fr 1fr;gap:0;padding:0}
+.context-split .top-half{padding:60px;display:flex;flex-direction:column;justify-content:flex-end}
+.context-split .top-half h1{font-family:'Space Grotesk';font-size:72px;line-height:.86;letter-spacing:-.05em}
+.context-split .bottom-half{padding:60px;border-top:1px solid rgba(255,255,255,.1)}
+.context-split .bottom-half p{font-size:26px;color:#9aafda;line-height:1.35}
+
+/* V5: DEVELOP NUMBER */
+.develop-number .big-num{font-family:'Space Grotesk';font-size:320px;font-weight:700;line-height:.7;letter-spacing:-.08em;color:rgba(255,255,255,.08);margin-top:20px}
+.develop-number .point{position:relative;font-size:44px;font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-top:-120px;max-width:85%}
+.develop-number .detail{position:absolute;bottom:60px;left:60px;right:60px;font-size:22px;color:#7b90b8;line-height:1.35}
+
+/* V6: DEVELOP CHECKLIST */
+.develop-checklist h2{font-family:'Space Grotesk';font-size:48px;letter-spacing:-.04em;margin-top:60px;margin-bottom:50px;line-height:.92}
+.develop-checklist .items{display:grid;gap:14px}
+.develop-checklist .item{display:grid;grid-template-columns:60px 1fr;align-items:start;padding:18px;border-radius:12px}
+.develop-checklist .item b{font-size:28px;font-weight:800;color:#8fb6ff}
+.develop-checklist .item span{font-size:24px;font-weight:600;color:#c5d5f0}
+
+/* V7: GRID 4 */
+.grid-4 .title{font-family:'Space Grotesk';font-size:44px;letter-spacing:-.04em;margin-top:60px;margin-bottom:40px;line-height:.92}
+.grid-4 .cells{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid-4 .cell b{display:block;font-size:36px;font-weight:800;color:#8fb6ff;margin-bottom:8px}
+.grid-4 .cell span{font-size:20px;color:#b9c7e6;line-height:1.2}
+
+/* V8: GRID LIST */
+.grid-list h2{font-family:'Space Grotesk';font-size:48px;letter-spacing:-.04em;margin-top:60px;margin-bottom:40px;line-height:.92}
+.grid-list .rows{display:grid;gap:0}
+.grid-list .row{display:grid;grid-template-columns:80px 1fr;border-top:1px solid rgba(255,255,255,.1);padding:24px 0;align-items:center}
+.grid-list .row b{font-size:32px;font-weight:800;color:#8fb6ff}
+.grid-list .row span{font-size:26px;font-weight:600}
+
+/* V9: TAKE INVERTED */
+.take-inverted{background:radial-gradient(circle at 80% 100%,#223b7a 0,#07101f 38%,#05070d 100%)}
+.take-inverted:before{border-color:rgba(143,182,255,.2)}
+.take-inverted .label{font-size:16px;font-weight:800;color:#8fb6ff;text-transform:uppercase;letter-spacing:.12em;margin-top:60px;margin-bottom:30px}
+.take-inverted h1{font-family:'Space Grotesk';font-size:64px;line-height:.88;letter-spacing:-.05em}
+
+/* V10: TAKE ACCENT */
+.take-accent{background:linear-gradient(135deg,#1e3a8a,#3b82f6)}
+.take-accent:before{border-color:rgba(255,255,255,.15)}
+.take-accent .label{font-size:16px;font-weight:800;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.12em;margin-top:60px;margin-bottom:30px}
+.take-accent h1{font-family:'Space Grotesk';font-size:64px;line-height:.88;letter-spacing:-.05em}
+
+/* V11: CLOSE TAGS */
+.close-tags{display:flex;flex-direction:column;justify-content:space-between}
+.close-tags .tags{font-size:40px;font-weight:700;line-height:1.5;color:#8fb6ff;margin-top:100px}
+.close-tags .arrow{font-size:160px;text-align:right;color:rgba(255,255,255,.15);line-height:1}
+
+/* V12: CLOSE SUMMARY */
+.close-summary h2{font-family:'Space Grotesk';font-size:44px;letter-spacing:-.04em;margin-top:60px;margin-bottom:50px;line-height:.92}
+.close-summary .points{display:grid;gap:24px}
+.close-summary .pt{border-left:4px solid #8fb6ff;padding-left:24px}
+.close-summary .pt b{font-size:28px;font-weight:800;display:block}
+.close-summary .pt span{font-size:20px;color:#7b90b8}
+.close-summary .cta{position:absolute;bottom:60px;left:60px;right:60px;font-size:22px;font-weight:700;color:#8fb6ff;letter-spacing:.04em}
+</style></head>
+<body>
+
+<div class="slide hook-hero" data-variant="hook-hero">
+  <div class="num">01</div><div class="issue">NS / AI OPS / 01</div>
+  <h1>3 errores al implementar <span class="accent">IA</span> en producto</h1>
+  <div class="deck">No fallan por el modelo. Fallan por no diseñar operación alrededor del modelo.</div>
+  <div class="bars">
+    <div class="bar glass"><b>01</b><span>métrica antes del piloto</span></div>
+    <div class="bar glass"><b>02</b><span>producción ≠ laboratorio</span></div>
+    <div class="bar glass"><b>03</b><span>rollback desde el día uno</span></div>
+  </div>
+</div>
+
+<div class="slide hook-question" data-variant="hook-question" style="display:none">
+  <div class="num">01</div><div class="issue">NS / AI OPS</div>
+  <h1>¿Qué pasa cuando tu <span class="accent">IA</span> toma una decisión que no puedes revertir?</h1>
+</div>
+
+<div class="slide context-news" data-variant="context-news" style="display:none">
+  <div class="num">02</div><div class="issue">NS / AI OPS</div>
+  <h1>Hoy apareció otra <span class="accent">señal</span> que vale más que mil discursos</h1>
+  <div class="body">OpenClaw publicó un parche por vulnerabilidades que permitían policy bypass en frameworks de agentes.</div>
+  <div class="source">fuente: openclaw.dev — 2025.04</div>
+</div>
+
+<div class="slide context-split" data-variant="context-split" style="display:none">
+  <div class="top-half"><div class="num">03</div><div class="issue" style="right:60px;top:48px">NS / AI OPS</div>
+    <h1>El riesgo no está en el <span class="accent">modelo</span></h1>
+  </div>
+  <div class="bottom-half"><p>No importa si detrás corre GPT-5.5, Claude 4 o Llama 4: si el framework puede evadir controles, el riesgo está en la orquestación.</p></div>
+</div>
+
+<div class="slide develop-number" data-variant="develop-number" style="display:none">
+  <div class="num">05</div><div class="issue">NS / AI OPS</div>
+  <div class="big-num">01</div>
+  <div class="point">Define políticas <span class="accent">fuera del prompt</span>, no enterradas en texto libre.</div>
+  <div class="detail">Las políticas deben ser declarativas, auditables y versionadas.</div>
+</div>
+
+<div class="slide develop-checklist" data-variant="develop-checklist" style="display:none">
+  <div class="num">04</div><div class="issue">NS / AI OPS</div>
+  <h2>Checklist para equipos que ya prueban <span class="accent">agentes</span> en serio</h2>
+  <div class="items">
+    <div class="item glass"><b>01</b><span>Políticas fuera del prompt</span></div>
+    <div class="item glass"><b>02</b><span>Permisos por herramienta</span></div>
+    <div class="item glass"><b>03</b><span>Registro de cada llamada</span></div>
+    <div class="item glass"><b>04</b><span>Kill switch operativo</span></div>
+  </div>
+</div>
+
+<div class="slide grid-4" data-variant="grid-4" style="display:none">
+  <div class="num">07</div><div class="issue">NS / AI OPS</div>
+  <div class="title">4 controles antes de <span class="accent">autonomía</span></div>
+  <div class="cells">
+    <div class="cell glass"><b>01</b><span>Define éxito antes de lanzar</span></div>
+    <div class="cell glass"><b>02</b><span>Separa leer de escribir</span></div>
+    <div class="cell glass"><b>03</b><span>Registra contexto y decisión</span></div>
+    <div class="cell glass"><b>04</b><span>Kill switch real</span></div>
+  </div>
+</div>
+
+<div class="slide grid-list" data-variant="grid-list" style="display:none">
+  <div class="num">08</div><div class="issue">NS / AI OPS</div>
+  <h2>Framework mínimo de <span class="accent">gobernanza</span></h2>
+  <div class="rows">
+    <div class="row"><b>01</b><span>Definir métrica de éxito</span></div>
+    <div class="row"><b>02</b><span>Separar permisos</span></div>
+    <div class="row"><b>03</b><span>Registrar decisiones</span></div>
+    <div class="row"><b>04</b><span>Kill switch operativo</span></div>
+  </div>
+</div>
+
+<div class="slide take-inverted" data-variant="take-inverted" style="display:none">
+  <div class="num">09</div><div class="issue">NS / AI OPS</div>
+  <div class="label">MI TAKE</div>
+  <h1>El valor no será tener agentes. Será poder <span class="accent">gobernarlos</span> sin improvisar.</h1>
+</div>
+
+<div class="slide take-accent" data-variant="take-accent" style="display:none">
+  <div class="num">09</div>
+  <div class="label">OPINIÓN DIRECTA</div>
+  <h1>Si no puedes explicar qué hace tu agente en 30 segundos, no lo pongas en producción.</h1>
+</div>
+
+<div class="slide close-tags" data-variant="close-tags" style="display:none">
+  <div class="num">12</div><div class="issue">NS / AI OPS</div>
+  <div class="tags">#AgentSecurity<br>#AIFrameworks<br>#CybersecurityAI<br>#PolicyBypass<br>#AIAgents</div>
+  <div class="arrow">→</div>
+</div>
+
+<div class="slide close-summary" data-variant="close-summary" style="display:none">
+  <div class="num">10</div><div class="issue">NS / AI OPS</div>
+  <h2>Lo que deberías llevarte de esto:</h2>
+  <div class="points">
+    <div class="pt"><b>Políticas declarativas</b><span>No embebidas en prompts</span></div>
+    <div class="pt"><b>Permisos granulares</b><span>Leer ≠ escribir ≠ ejecutar</span></div>
+    <div class="pt"><b>Observabilidad real</b><span>Logs de cada decisión</span></div>
+  </div>
+  <div class="cta">¿Ya implementaste alguno? → Comenta</div>
+</div>
+
+<script>
+function showVariant(name){
+  document.querySelectorAll('.slide').forEach(s=>s.style.display='none');
+  document.querySelector(`[data-variant="${name}"]`).style.display='';
+}
+</script>
+<script src="/templates/preview.js"></script></body></html>

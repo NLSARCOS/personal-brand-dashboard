@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Direcciones visuales — Nelson Sarcos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080b12;color:#eef3ff;font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:1400px;margin:0 auto;padding:20px 16px 50px}
+.top{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:20px}
+.top h1{font-size:clamp(26px,4vw,44px);margin:0;letter-spacing:-.06em;line-height:.9;font-weight:900}
+.top p{margin:6px 0 0;color:#8896b0;max-width:620px;font-size:13px}
+.back{color:#f97316;text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:#0d1320;border:1px solid #1e2b42;border-radius:14px;padding:12px;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.card-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.card-label b{font-size:13px;font-weight:800;letter-spacing:-.02em}
+.card-label span{font-size:10px;color:#556380;font-family:monospace;text-transform:uppercase;letter-spacing:.08em}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;cursor:zoom-in}
+.card-desc{margin-top:8px;font-size:11px;color:#8896b0;line-height:1.4}
+.card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tag{padding:2px 8px;border-radius:999px;font-size:9px;font-weight:700;background:#182235;color:#93a4c8;border:1px solid #2a3a55}
+/* lightbox */
+#lb{display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.94);align-items:center;justify-content:center;cursor:zoom-out;backdrop-filter:blur(8px)}
+#lb.open{display:flex}
+#lb img{max-width:88vw;max-height:88vh;object-fit:contain;border-radius:12px;box-shadow:0 40px 100px rgba(0,0,0,.7)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>Direcciones visuales aprobadas</h1>
+      <p>6 familias visuales con composición densa, tipografía con presencia y cero zonas muertas. Clic en cualquiera para ampliar.</p>
+    </div>
+    <a href="/" class="back">← Dashboard</a>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-label"><b>#1 Premium editorial</b><span>magazine</span></div>
+      <img src="/exports/style-premium-editorial.png" alt="Premium editorial" onclick="lbShow(this.src)"/>
+      <div class="card-desc">Revista tech premium. Headline enorme, deck de apoyo, módulos inferiores glass. Gradiente radial oscuro.</div>
+      <div class="card-tags"><span class="tag">análisis</span><span class="tag">autoridad</span><span class="tag">insights</span><span class="tag">estrategia</span></div>
+    </div>
+    <div class="card">
+      <div class="card-label"><b>#2 Swiss brutal</b><span>grid</span></div>
+      <img src="/exports/style-swiss-brutal.png" alt="Swiss brutal" onclick="lbShow(this.src)"/>
+      <div class="card-desc">Tipografía suiza. Fondo crema, negro + rojo. Grillas de cajas gruesas, titulares uppercase enormes. Alto contraste.</div>
+      <div class="card-tags"><span class="tag">seguridad</span><span class="tag">checklist</span><span class="tag">advertencias</span><span class="tag">takes duros</span></div>
+    </div>
+    <div class="card">
+      <div class="card-label"><b>#3 Product dashboard</b><span>saas</span></div>
+      <img src="/exports/style-product-dashboard.png" alt="Product dashboard" onclick="lbShow(this.src)"/>
+      <div class="card-desc">Interfaz SaaS con ventana glass, KPIs, nodos de flujo. Cyan sobre navy. Sensación de producto real.</div>
+      <div class="card-tags"><span class="tag">métricas</span><span class="tag">workflows</span><span class="tag">automatización</span><span class="tag">sistemas</span></div>
+    </div>
+    <div class="card">
+      <div class="card-label"><b>#4 Technical blueprint</b><span>systems</span></div>
+      <img src="/exports/style-blueprint.png" alt="Blueprint" onclick="lbShow(this.src)"/>
+      <div class="card-desc">Blueprint técnico. Grid cyan sutil, nodos conectados, monospace. Diagrama de arquitectura sobre papel técnico.</div>
+      <div class="card-tags"><span class="tag">arquitectura</span><span class="tag">guardrails</span><span class="tag">flujos</span><span class="tag">infraestructura</span></div>
+    </div>
+    <div class="card">
+      <div class="card-label"><b>#5 Founder note</b><span>human</span></div>
+      <img src="/exports/style-founder-note.png" alt="Founder note" onclick="lbShow(this.src)"/>
+      <div class="card-desc">Nota del fundador. Papel cálido rotado, headline bold, cita con borde izquierdo. Reflexivo pero premium.</div>
+      <div class="card-tags"><span class="tag">opinión</span><span class="tag">reflexión</span><span class="tag">lecciones</span><span class="tag">postura</span></div>
+    </div>
+    <div class="card">
+      <div class="card-label"><b>#6 Data poster</b><span>bold</span></div>
+      <img src="/exports/style-data-poster.png" alt="Data poster" onclick="lbShow(this.src)"/>
+      <div class="card-desc">Póster de impacto. Texto gigante, strip de color, lista numerada. Lectura en 2 segundos. Máximo golpe visual.</div>
+      <div class="card-tags"><span class="tag">cifras</span><span class="tag">claims</span><span class="tag">listas</span><span class="tag">impacto</span></div>
+    </div>
+  </div>
+</div>
+<div id="lb" onclick="this.classList.remove('open')"><img id="lbImg" src=""/></div>
+<script>function lbShow(src){document.getElementById('lbImg').src=src;document.getElementById('lb').classList.add('open')}</script>
+</body>
+</html>

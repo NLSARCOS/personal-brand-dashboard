@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Direcciones visuales — Nelson Sarcos</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080b12;color:#eef3ff;font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:1480px;margin:0 auto;padding:20px 12px 40px}
+.top{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:16px}
+.top h1{font-size:clamp(26px,4vw,48px);margin:0;letter-spacing:-.06em;line-height:.9;font-weight:900}
+.top p{margin:6px 0 0;color:#8896b0;max-width:720px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+.option{background:#0d1320;border:1px solid #1e2b42;border-radius:14px;padding:10px}
+.label{display:flex;justify-content:space-between;align-items:center;color:#8896b0;font-size:11px;margin:0 0 8px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.post{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:12px;isolation:isolate;container-type:inline-size}
+.num{font-family:IBM Plex Mono,monospace;color:#556380;font-size:10px}
+.post h2,.post p{margin:0}
+.tiny{font-family:IBM Plex Mono,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8896b0}
+.glass{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+
+/* 1 Premium editorial — DENSO */
+.editorial{background:radial-gradient(circle at 20% 0%,#223b7a 0,#07101f 38%,#05070d 100%);padding:28px;color:#f4f7ff}
+.editorial:before{content:"";position:absolute;inset:16px;border:1px solid rgba(255,255,255,.12);border-radius:10px;pointer-events:none}
+.editorial .issue{position:absolute;right:28px;top:24px;color:#6b8fd4;font-size:10px;letter-spacing:.12em}
+.editorial h2{font-family:Space Grotesk,sans-serif;font-size:58px;line-height:.86;letter-spacing:-.06em;max-width:92%;margin-top:56px}
+.editorial .deck{font-size:19px;color:#9aafda;margin-top:14px;max-width:90%;line-height:1.15}
+.editorial .bars{position:absolute;left:28px;right:28px;bottom:28px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.editorial .bar{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px}
+.editorial .bar b{display:block;font-size:22px;color:#fff;letter-spacing:-.03em}
+.editorial .bar span{color:#7b90b8;font-size:11px}
+
+/* 2 Swiss brutal — ULTRA DENSO como el carrusel */
+.swiss{background:#f5f1e8;color:#090909;padding:20px;font-family:Inter}
+.swiss .rule{height:8px;background:#0a0a0a;width:50%;margin-bottom:16px}
+.swiss h2{font-size:72px;letter-spacing:-.08em;line-height:.78;text-transform:uppercase;font-weight:900}
+.swiss .red{color:#e11d48}
+.swiss .matrix{position:absolute;left:20px;right:20px;bottom:20px;display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr 1fr;gap:6px}
+.swiss .cell{border:3px solid #090909;min-height:90px;padding:10px;background:#fff}
+.swiss .cell.dark{background:#090909;color:#fff}
+.swiss .cell b{font-size:28px;letter-spacing:-.04em;font-weight:900}
+.swiss .cell span{display:block;margin-top:4px;font-size:12px;font-weight:700;line-height:1.15}
+
+/* 3 Product dashboard — COMPACTO */
+.dashboard{background:#07111f;padding:16px;color:#eaf2ff}
+.dashboard:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 80% 10%,rgba(56,189,248,.3),transparent 35%);z-index:-1}
+.dashboard .window{height:100%;border:1px solid rgba(148,163,184,.2);border-radius:12px;background:rgba(15,23,42,.75);box-shadow:0 16px 60px rgba(0,0,0,.5);padding:16px}
+.dashboard .topbar{height:28px;border-bottom:1px solid rgba(148,163,184,.15);display:flex;gap:5px;align-items:center;margin-bottom:12px}
+.dashboard .dot{width:7px;height:7px;border-radius:99px;background:#38bdf8}
+.dashboard h2{font-size:38px;line-height:.92;letter-spacing:-.05em;font-weight:900}
+.dashboard .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px}
+.dashboard .kpi{border:1px solid rgba(148,163,184,.18);border-radius:8px;background:rgba(255,255,255,.03);padding:10px}
+.dashboard .kpi b{font-size:22px;color:#7dd3fc;font-weight:900}
+.dashboard .kpi span{font-size:11px;color:#7b90b8}
+.dashboard .flow{position:absolute;left:32px;right:32px;bottom:32px;height:200px;border:1px solid rgba(148,163,184,.14);border-radius:10px;background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(255,255,255,.008));padding:14px}
+.dashboard .node{display:inline-flex;margin:8px 6px 0 0;padding:8px 12px;border-radius:999px;background:#0ea5e9;color:#00121f;font-weight:800;font-size:12px}
+
+/* 4 Blueprint — DENSO */
+.blueprint{background:#050812;color:#dffcff;padding:22px}
+.blueprint:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(34,211,238,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.07) 1px,transparent 1px);background-size:36px 36px}
+.blueprint h2{position:relative;font-family:IBM Plex Mono,monospace;font-size:36px;line-height:1;letter-spacing:-.04em;margin-top:28px;color:#e6fffb}
+.blueprint .diagram{position:absolute;left:32px;right:32px;bottom:36px;top:280px}
+.blueprint .box{position:absolute;border:1.5px solid #22d3ee;background:rgba(8,47,73,.5);box-shadow:0 0 16px rgba(34,211,238,.1);border-radius:8px;padding:12px;font-family:IBM Plex Mono,monospace;font-size:12px}
+.blueprint .b1{left:0;top:0;width:42%}.blueprint .b2{right:0;top:60px;width:44%}
+.blueprint .b3{left:20%;bottom:50px;width:52%}.blueprint .b4{right:10%;bottom:0;width:46%}
+.blueprint svg{position:absolute;inset:0;width:100%;height:100%}
+
+/* 5 Founder note — APRETADO */
+.note{background:#fff;color:#151515;padding:24px}
+.note .paper{height:100%;background:#fbfaf7;border:1px solid #d8d0c2;border-radius:4px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.1);transform:rotate(-.8deg)}
+.note h2{font-family:Space Grotesk,sans-serif;font-size:48px;line-height:.9;letter-spacing:-.06em}
+.note .quote{margin-top:20px;border-left:5px solid #151515;padding-left:16px;font-size:22px;line-height:1.15;font-weight:600}
+.note .meta{margin-top:18px;font-size:18px;color:#777;font-weight:500}
+.note .scribble{position:absolute;right:50px;bottom:60px;width:180px;height:80px;border:3px solid #151515;border-radius:55% 45% 60% 40%;transform:rotate(-8deg)}
+
+/* 6 Data poster — IMPACTO MÁXIMO */
+.data{background:#0d0d0d;color:#f7f7f7;padding:24px}
+.data .big{font-size:140px;line-height:.72;font-weight:900;letter-spacing:-.09em}
+.data .big span{color:#a3e635}
+.data .strip{position:absolute;left:0;right:0;top:280px;height:54px;background:#a3e635;color:#111;display:flex;align-items:center;padding-left:24px;font-size:22px;font-weight:900;letter-spacing:-.03em}
+.data .list{position:absolute;left:24px;right:24px;bottom:28px;display:grid;gap:8px}
+.data .item{display:grid;grid-template-columns:70px 1fr;align-items:center;border-top:1px solid #3f3f46;padding-top:10px}
+.data .item b{font-family:IBM Plex Mono,monospace;color:#a3e635;font-size:24px;font-weight:700}
+.data .item span{font-size:22px;font-weight:800;letter-spacing:-.03em}
+
+/* Container queries — responsive dentro del canvas */
+@container (max-width: 430px){
+  .tiny{font-size:2.4cqw!important}
+  .editorial{padding:5cqw}.editorial:before{inset:3.5cqw}.editorial .issue{right:5cqw;top:5cqw;font-size:2.2cqw}
+  .editorial h2{font-size:9.5cqw;margin-top:12cqw}.editorial .deck{font-size:4cqw;margin-top:3cqw}
+  .editorial .bars{left:5cqw;right:5cqw;bottom:5cqw;gap:1.5cqw}.editorial .bar{padding:2.5cqw;border-radius:2cqw}
+  .editorial .bar b{font-size:5cqw}.editorial .bar span{font-size:2.4cqw}
+
+  .swiss{padding:4cqw}.swiss .rule{height:1.6cqw;margin-bottom:3.5cqw}
+  .swiss h2{font-size:12cqw}
+  .swiss .matrix{left:4cqw;right:4cqw;bottom:4cqw;gap:1.2cqw}
+  .swiss .cell{min-height:18cqw;padding:2.5cqw;border-width:.6cqw}
+  .swiss .cell b{font-size:5.5cqw}.swiss .cell span{font-size:2.6cqw}
+
+  .dashboard{padding:3cqw}.dashboard .window{padding:3.5cqw;border-radius:3cqw}
+  .dashboard .topbar{height:5cqw}.dashboard .dot{width:1.6cqw;height:1.6cqw}
+  .dashboard h2{font-size:7cqw}.dashboard .kpis{gap:1.2cqw;margin-top:3cqw}
+  .dashboard .kpi{padding:2cqw;border-radius:2cqw}.dashboard .kpi b{font-size:4.5cqw}
+  .dashboard .flow{left:6cqw;right:6cqw;bottom:6cqw;height:32cqw;padding:3cqw}
+  .dashboard .node{margin:1.5cqw 1cqw 0 0;padding:1.8cqw 2.4cqw;font-size:2.4cqw}
+
+  .blueprint{padding:4cqw}.blueprint h2{font-size:6.5cqw;margin-top:6cqw}
+  .blueprint .diagram{left:5cqw;right:5cqw;bottom:6cqw;top:38cqw}
+  .blueprint .box{padding:2.5cqw;border-radius:2cqw;font-size:2.4cqw}
+
+  .note{padding:4cqw}.note .paper{padding:5cqw}
+  .note h2{font-size:8.5cqw}.note .quote{margin-top:4cqw;font-size:4.5cqw;border-left-width:1cqw;padding-left:3cqw}
+  .note .meta{font-size:3.5cqw;margin-top:3cqw}
+  .note .scribble{right:8cqw;bottom:8cqw;width:28cqw;height:14cqw}
+
+  .data{padding:4cqw}.data .big{font-size:20cqw}
+  .data .strip{top:38cqw;height:9cqw;padding-left:4cqw;font-size:4cqw}
+  .data .list{left:4cqw;right:4cqw;bottom:5cqw;gap:1.8cqw}
+  .data .item{grid-template-columns:14cqw 1fr;padding-top:2cqw}
+  .data .item b{font-size:4.8cqw}.data .item span{font-size:4.2cqw}
+}
+
+@media(max-width:520px){
+  .grid{grid-template-columns:1fr}.option{padding:8px}.wrap{padding:10px 8px 30px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div>
+      <h1>Direcciones visuales aprobadas</h1>
+      <p>6 familias visuales con composición densa, tipografía con presencia y sin zonas muertas. Cada una se adapta al tipo de contenido.</p>
+    </div>
+    <a href="/" style="color:#f97316;text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap">← Dashboard</a>
+  </div>
+  <div class="grid">
+
+    <section class="option"><div class="label"><b>#1 Premium editorial</b><span class="num">magazine</span></div>
+      <div class="post editorial">
+        <div class="tiny issue">NS / AI OPS / 01</div>
+        <h2>3 errores al implementar IA en producto</h2>
+        <p class="deck">No fallan por el modelo. Fallan por no diseñar operación alrededor del modelo.</p>
+        <div class="bars">
+          <div class="bar"><b>01</b><span>métrica antes del piloto</span></div>
+          <div class="bar"><b>02</b><span>producción ≠ laboratorio</span></div>
+          <div class="bar"><b>03</b><span>rollback desde el día uno</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="option"><div class="label"><b>#2 Swiss brutal</b><span class="num">grid</span></div>
+      <div class="post swiss">
+        <div class="rule"></div>
+        <h2>IA<br><span class="red">sin</span><br>operación<br>es deuda</h2>
+        <div class="matrix">
+          <div class="cell dark"><b>01</b><span>Define éxito</span></div>
+          <div class="cell"><b>02</b><span>Prueba con límites</span></div>
+          <div class="cell"><b>03</b><span>Observa señales</span></div>
+          <div class="cell dark"><b>04</b><span>Rollback listo</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="option"><div class="label"><b>#3 Product dashboard</b><span class="num">saas</span></div>
+      <div class="post dashboard">
+        <div class="window glass">
+          <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <h2>El modelo no es el producto. El sistema sí.</h2>
+          <div class="kpis">
+            <div class="kpi"><b>92%</b><br><span>calidad</span></div>
+            <div class="kpi"><b>2.8s</b><br><span>p95</span></div>
+            <div class="kpi"><b>OK</b><br><span>rollback</span></div>
+          </div>
+          <div class="flow">
+            <div class="tiny">flujo mínimo</div>
+            <span class="node">input</span><span class="node">validación</span><span class="node">modelo</span><span class="node">política</span><span class="node">acción</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="option"><div class="label"><b>#4 Technical blueprint</b><span class="num">systems</span></div>
+      <div class="post blueprint">
+        <div class="tiny">arquitectura de decisión</div>
+        <h2>Antes de lanzar IA, define dónde se rompe.</h2>
+        <div class="diagram">
+          <svg viewBox="0 0 600 520"><path d="M110 60 C260 70 290 140 430 135" fill="none" stroke="#22d3ee" stroke-width="2.5"/><path d="M460 180 C420 260 300 260 255 350" fill="none" stroke="#22d3ee" stroke-width="2.5"/><path d="M280 400 C420 420 420 470 500 440" fill="none" stroke="#22d3ee" stroke-width="2.5"/></svg>
+          <div class="box b1">01_INPUT<br>datos + contexto</div>
+          <div class="box b2">02_POLICY<br>límites + permisos</div>
+          <div class="box b3">03_MODEL<br>respuesta validada</div>
+          <div class="box b4">04_OBSERVE<br>trazas + alertas</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="option"><div class="label"><b>#5 Founder note</b><span class="num">human</span></div>
+      <div class="post note">
+        <div class="paper">
+          <div class="tiny" style="color:#999">nota técnica</div>
+          <h2>La IA no te da velocidad si tu equipo no tiene criterio.</h2>
+          <p class="quote">Primero define qué significa "bien". Después automatiza.</p>
+          <p class="meta">métrica · límites · revisión · rollback</p>
+          <div class="scribble"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="option"><div class="label"><b>#6 Data poster</b><span class="num">bold</span></div>
+      <div class="post data">
+        <div class="big">NO<br><span>SHIP</span></div>
+        <div class="strip">sin estos 3 controles</div>
+        <div class="list">
+          <div class="item"><b>01</b><span>métrica de éxito definida</span></div>
+          <div class="item"><b>02</b><span>evaluación fuera del demo</span></div>
+          <div class="item"><b>03</b><span>rollback operativo real</span></div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</body>
+</html>

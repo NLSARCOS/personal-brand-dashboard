@@ -1,0 +1,149 @@
+<!-- PRODUCT DASHBOARD — 12 variantes -->
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.slide{width:1080px;height:1350px;background:#07111f;color:#eaf2ff;font-family:Inter,sans-serif;position:relative;overflow:hidden}
+.slide:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 80% 10%,rgba(56,189,248,.25),transparent 35%);z-index:0}
+.window{position:absolute;inset:40px;border:1px solid rgba(148,163,184,.2);border-radius:20px;background:rgba(15,23,42,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 80px rgba(0,0,0,.5);padding:40px;z-index:1;display:flex;flex-direction:column}
+.topbar{height:32px;border-bottom:1px solid rgba(148,163,184,.12);display:flex;gap:6px;align-items:center;margin-bottom:30px;padding-bottom:16px}
+.dot{width:9px;height:9px;border-radius:99px;background:#38bdf8}
+.dot:nth-child(2){background:#a78bfa}.dot:nth-child(3){background:#22c55e}
+.num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(148,163,184,.5);position:absolute;top:24px;left:24px}
+.cyan{color:#7dd3fc}
+.glass{background:rgba(255,255,255,.04);border:1px solid rgba(148,163,184,.15);border-radius:12px;padding:24px}
+.node{display:inline-flex;padding:10px 18px;border-radius:999px;background:#0ea5e9;color:#00121f;font-weight:800;font-size:15px;margin:6px 4px 0 0}
+
+/* V1-12 compact definitions */
+.hook-hero h1{font-size:72px;font-weight:900;letter-spacing:-.05em;line-height:.9;margin-bottom:30px}
+.hook-hero .kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:30px}
+.hook-hero .kpi b{display:block;font-size:36px;color:#7dd3fc;font-weight:900}.hook-hero .kpi span{font-size:14px;color:#64748b}
+.hook-hero .flow-area{margin-top:auto;border-top:1px solid rgba(148,163,184,.12);padding-top:24px}
+.hook-hero .flow-label{font-family:'IBM Plex Mono';font-size:12px;color:#4a6a9e;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+
+.hook-question{text-align:center;align-items:center;justify-content:center}
+.hook-question h1{font-size:68px;font-weight:900;letter-spacing:-.05em;line-height:.9}
+
+.context-news h1{font-size:62px;font-weight:900;letter-spacing:-.04em;line-height:.9;margin-bottom:24px}
+.context-news .body{font-size:24px;color:#94a3b8;line-height:1.35;max-width:90%}
+.context-news .source{position:absolute;bottom:60px;left:64px;font-family:'IBM Plex Mono';font-size:14px;color:#4a6a9e}
+
+.context-split .split{display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1}
+.context-split .split-left{display:flex;align-items:center}
+.context-split .split-left h1{font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:.9}
+.context-split .split-right{display:flex;align-items:center}
+.context-split .split-right p{font-size:24px;color:#94a3b8;line-height:1.35}
+
+.develop-number .big{font-size:300px;font-weight:900;line-height:.65;color:rgba(56,189,248,.08);letter-spacing:-.08em}
+.develop-number .point{font-size:40px;font-weight:800;letter-spacing:-.03em;margin-top:-60px;position:relative;max-width:85%;line-height:1}
+.develop-number .detail{margin-top:auto;font-size:20px;color:#64748b;line-height:1.3}
+
+.develop-checklist h2{font-size:44px;font-weight:900;letter-spacing:-.04em;margin-bottom:30px;line-height:.92}
+.develop-checklist .items{display:grid;gap:10px}
+.develop-checklist .item{display:grid;grid-template-columns:60px 1fr;align-items:center}
+.develop-checklist .item b{font-size:24px;color:#7dd3fc;font-weight:800}
+.develop-checklist .item span{font-size:22px;font-weight:600}
+
+.grid-4 .title{font-size:42px;font-weight:900;letter-spacing:-.04em;margin-bottom:24px;line-height:.92}
+.grid-4 .cells{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1}
+.grid-4 .cell b{display:block;font-size:32px;color:#7dd3fc;font-weight:900;margin-bottom:8px}
+.grid-4 .cell span{font-size:18px;color:#94a3b8;line-height:1.2}
+
+.grid-list h2{font-size:42px;font-weight:900;letter-spacing:-.04em;margin-bottom:24px;line-height:.92}
+.grid-list .rows{display:grid;gap:0}
+.grid-list .row{display:grid;grid-template-columns:70px 1fr;border-top:1px solid rgba(148,163,184,.12);padding:20px 0;align-items:center}
+.grid-list .row b{font-size:28px;color:#7dd3fc;font-weight:800}
+.grid-list .row span{font-size:24px;font-weight:600}
+
+.take-inverted .window{background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.3)}
+.take-inverted .label{font-size:14px;color:#7dd3fc;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:20px}
+.take-inverted h1{font-size:58px;font-weight:900;letter-spacing:-.04em;line-height:.88}
+
+.take-accent .window{background:linear-gradient(135deg,rgba(14,165,233,.2),rgba(168,85,247,.1));border-color:rgba(56,189,248,.3)}
+.take-accent .label{font-size:14px;color:#a78bfa;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:20px}
+.take-accent h1{font-size:58px;font-weight:900;letter-spacing:-.04em;line-height:.88}
+
+.close-tags .tags{font-size:38px;font-weight:800;line-height:1.5;color:#7dd3fc;margin-top:40px}
+.close-tags .arrow{margin-top:auto;font-size:140px;text-align:right;color:rgba(56,189,248,.15)}
+
+.close-summary h2{font-size:40px;font-weight:900;letter-spacing:-.04em;margin-bottom:30px;line-height:.92}
+.close-summary .points{display:grid;gap:16px}
+.close-summary .pt{border-left:3px solid #7dd3fc;padding-left:20px}
+.close-summary .pt b{font-size:24px;font-weight:800;display:block}.close-summary .pt span{font-size:18px;color:#64748b}
+.close-summary .cta{margin-top:auto;font-size:20px;font-weight:700;color:#7dd3fc}
+</style></head><body>
+
+<div class="slide hook-hero" data-variant="hook-hero"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <h1>El modelo no es el <span class="cyan">producto</span>. El sistema sí.</h1>
+  <div class="kpis"><div class="kpi glass"><b>92%</b><span>calidad</span></div><div class="kpi glass"><b>2.8s</b><span>p95</span></div><div class="kpi glass"><b>OK</b><span>rollback</span></div></div>
+  <div class="flow-area"><div class="flow-label">flujo mínimo</div><span class="node">input</span><span class="node">validación</span><span class="node">modelo</span><span class="node">política</span><span class="node">acción</span></div>
+</div></div>
+
+<div class="slide hook-question" data-variant="hook-question" style="display:none"><div class="window" style="justify-content:center;align-items:center">
+  <div class="topbar" style="position:absolute;top:40px;left:40px;right:40px"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <h1>¿Tu sistema de <span class="cyan">IA</span> tiene plan de rollback?</h1>
+</div></div>
+
+<div class="slide context-news" data-variant="context-news" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <h1>El <span class="cyan">73%</span> de los pilotos no llegan a producción</h1>
+  <div class="body">No por falta de modelo. Por falta de infraestructura de decisión.</div>
+  <div class="source">gartner 2025</div>
+</div></div>
+
+<div class="slide context-split" data-variant="context-split" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <div class="split"><div class="split-left"><h1>El riesgo no está en el <span class="cyan">modelo</span></h1></div>
+  <div class="split-right"><p>Está en la orquestación. Sin controles declarativos, tu agente es un riesgo operativo.</p></div></div>
+</div></div>
+
+<div class="slide develop-number" data-variant="develop-number" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <div class="big">01</div><div class="point">Define <span class="cyan">métrica de éxito</span> antes de lanzar</div>
+  <div class="detail">Sin métrica no hay iteración. Sin iteración, tu IA es un gasto.</div>
+</div></div>
+
+<div class="slide develop-checklist" data-variant="develop-checklist" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <h2>Checklist <span class="cyan">operativo</span></h2>
+  <div class="items"><div class="item glass"><b>01</b><span>Métrica definida</span></div><div class="item glass"><b>02</b><span>Evaluación real</span></div><div class="item glass"><b>03</b><span>Rollback listo</span></div><div class="item glass"><b>04</b><span>Logs activos</span></div></div>
+</div></div>
+
+<div class="slide grid-4" data-variant="grid-4" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <div class="title">4 controles de <span class="cyan">producción</span></div>
+  <div class="cells"><div class="cell glass"><b>01</b><span>Métrica clara</span></div><div class="cell glass"><b>02</b><span>Test real</span></div><div class="cell glass"><b>03</b><span>Rollback</span></div><div class="cell glass"><b>04</b><span>Logs</span></div></div>
+</div></div>
+
+<div class="slide grid-list" data-variant="grid-list" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <h2>Framework <span class="cyan">mínimo</span></h2>
+  <div class="rows"><div class="row"><b>01</b><span>Métrica de éxito</span></div><div class="row"><b>02</b><span>Evaluación real</span></div><div class="row"><b>03</b><span>Rollback operativo</span></div><div class="row"><b>04</b><span>Registro de decisiones</span></div></div>
+</div></div>
+
+<div class="slide take-inverted" data-variant="take-inverted" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <div class="label">MI TAKE</div><h1>Si tu IA no tiene <span class="cyan">rollback</span>, no es producción. Es un experimento.</h1>
+</div></div>
+
+<div class="slide take-accent" data-variant="take-accent" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <div class="label">OPINIÓN</div><h1>El problema no es la IA. Es que nadie definió qué pasa cuando <span class="cyan">falla</span>.</h1>
+</div></div>
+
+<div class="slide close-tags" data-variant="close-tags" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <div class="tags">#AIProduction<br>#MLOps<br>#SystemDesign<br>#ProductionReady</div>
+  <div class="arrow">→</div>
+</div></div>
+
+<div class="slide close-summary" data-variant="close-summary" style="display:none"><div class="window">
+  <div class="topbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+  <h2>Resumen:</h2>
+  <div class="points"><div class="pt"><b>Métrica primero</b><span>Define antes de lanzar</span></div><div class="pt"><b>Evalúa en real</b><span>Demo ≠ producción</span></div><div class="pt"><b>Rollback día uno</b><span>Plan de reversión</span></div></div>
+  <div class="cta">¿Tu IA tiene estos 3? → Comenta</div>
+</div></div>
+
+<script>function showVariant(name){document.querySelectorAll('.slide').forEach(s=>s.style.display='none');document.querySelector(`[data-variant="${name}"]`).style.display=''}</script>
+<script src="/templates/preview.js"></script></body></html>

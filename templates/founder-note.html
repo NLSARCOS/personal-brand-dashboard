@@ -1,0 +1,121 @@
+<!-- FOUNDER NOTE — 12 variantes -->
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.slide{width:1080px;height:1350px;background:#fff;position:relative;overflow:hidden}
+.paper{position:absolute;inset:36px;background:#fbfaf7;border:1px solid #d8d0c2;border-radius:6px;box-shadow:0 24px 70px rgba(0,0,0,.1);transform:rotate(-.6deg);padding:70px;color:#151515;font-family:Inter,sans-serif;display:flex;flex-direction:column}
+.num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#aaa;letter-spacing:.1em}
+.label{font-family:'IBM Plex Mono',monospace;font-size:14px;color:#999;text-transform:uppercase;letter-spacing:.12em;margin-bottom:24px}
+.accent{font-weight:900}
+.scribble{position:absolute;right:70px;bottom:70px;width:160px;height:70px;border:3px solid #151515;border-radius:55% 45% 60% 40%;transform:rotate(-8deg)}
+
+.hook-hero h1{font-family:'Space Grotesk';font-size:74px;line-height:.9;letter-spacing:-.06em;font-weight:700;margin-top:40px}
+.hook-hero .quote{margin-top:40px;border-left:6px solid #151515;padding-left:28px;font-size:30px;font-weight:600;line-height:1.15;max-width:85%}
+.hook-hero .meta{margin-top:auto;font-size:20px;color:#888;font-weight:500}
+
+.hook-question{text-align:center}.hook-question .paper{align-items:center;justify-content:center}
+.hook-question h1{font-family:'Space Grotesk';font-size:68px;line-height:.9;letter-spacing:-.06em;font-weight:700;max-width:90%}
+
+.context-news h1{font-family:'Space Grotesk';font-size:62px;line-height:.9;letter-spacing:-.05em;font-weight:700;margin-top:30px}
+.context-news .body{font-size:26px;color:#555;margin-top:30px;line-height:1.35;max-width:88%}
+.context-news .source{margin-top:auto;font-family:'IBM Plex Mono';font-size:15px;color:#bbb}
+
+.context-split .paper{flex-direction:row;padding:0;gap:0}
+.context-split .left{flex:1;padding:70px;display:flex;align-items:center;border-right:1px solid #d8d0c2}
+.context-split .left h1{font-family:'Space Grotesk';font-size:56px;line-height:.9;letter-spacing:-.05em;font-weight:700}
+.context-split .right{flex:1;padding:70px;display:flex;align-items:center}
+.context-split .right p{font-size:26px;color:#555;line-height:1.35}
+
+.develop-number .big{font-family:'Space Grotesk';font-size:300px;font-weight:700;line-height:.65;color:rgba(21,21,21,.06);letter-spacing:-.08em}
+.develop-number .point{font-family:'Space Grotesk';font-size:42px;font-weight:700;letter-spacing:-.04em;margin-top:-60px;position:relative;max-width:85%;line-height:1}
+.develop-number .detail{margin-top:auto;font-size:20px;color:#888;line-height:1.35}
+
+.develop-checklist h2{font-family:'Space Grotesk';font-size:46px;font-weight:700;letter-spacing:-.04em;margin-top:30px;margin-bottom:40px;line-height:.92}
+.develop-checklist .items{display:grid;gap:16px}
+.develop-checklist .item{display:grid;grid-template-columns:60px 1fr;align-items:center;border-bottom:1px solid #d8d0c2;padding-bottom:16px}
+.develop-checklist .item b{font-size:26px;font-weight:900;color:#151515}
+.develop-checklist .item span{font-size:24px;font-weight:600;color:#444}
+
+.grid-4 .title{font-family:'Space Grotesk';font-size:42px;font-weight:700;letter-spacing:-.04em;margin-top:30px;margin-bottom:30px;line-height:.92}
+.grid-4 .cells{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-4 .cell{border:1px solid #d8d0c2;border-radius:8px;padding:28px}
+.grid-4 .cell b{display:block;font-size:30px;font-weight:900;margin-bottom:8px}
+.grid-4 .cell span{font-size:20px;color:#666;line-height:1.2}
+
+.grid-list h2{font-family:'Space Grotesk';font-size:42px;font-weight:700;letter-spacing:-.04em;margin-top:30px;margin-bottom:30px;line-height:.92}
+.grid-list .rows{display:grid;gap:0}
+.grid-list .row{display:grid;grid-template-columns:60px 1fr;border-top:1px solid #d8d0c2;padding:22px 0;align-items:center}
+.grid-list .row b{font-size:28px;font-weight:900}
+.grid-list .row span{font-size:24px;font-weight:600;color:#444}
+
+.take-inverted .paper{background:#151515;color:#fbfaf7;border-color:#333}
+.take-inverted .label{color:#777}
+.take-inverted h1{font-family:'Space Grotesk';font-size:58px;line-height:.9;letter-spacing:-.05em;font-weight:700}
+.take-inverted .scribble{border-color:#fbfaf7}
+
+.take-accent .paper{background:#fbfaf7}
+.take-accent h1{font-family:'Space Grotesk';font-size:58px;line-height:.9;letter-spacing:-.05em;font-weight:700}
+.take-accent h1 u{text-decoration:underline;text-decoration-thickness:6px;text-underline-offset:6px}
+
+.close-tags .tags{font-family:'Space Grotesk';font-size:38px;font-weight:600;line-height:1.6;color:#151515;margin-top:60px}
+.close-tags .arrow{margin-top:auto;font-size:140px;text-align:right;color:#d8d0c2}
+
+.close-summary h2{font-family:'Space Grotesk';font-size:40px;font-weight:700;letter-spacing:-.04em;margin-top:20px;margin-bottom:40px;line-height:.92}
+.close-summary .points{display:grid;gap:20px}
+.close-summary .pt{border-left:5px solid #151515;padding-left:24px}
+.close-summary .pt b{font-size:24px;font-weight:800;display:block}
+.close-summary .pt span{font-size:18px;color:#888}
+.close-summary .cta{margin-top:auto;font-size:20px;font-weight:700;color:#151515}
+</style></head><body>
+
+<div class="slide hook-hero" data-variant="hook-hero"><div class="paper"><div class="label">NOTA TÉCNICA</div>
+  <h1>La IA no te da velocidad si tu equipo no tiene criterio.</h1>
+  <div class="quote">Primero define qué significa "bien". Después automatiza.</div>
+  <div class="meta">métrica · límites · revisión · rollback</div><div class="scribble"></div></div></div>
+
+<div class="slide hook-question" data-variant="hook-question" style="display:none"><div class="paper"><div class="label">REFLEXIÓN</div>
+  <h1>¿Estás automatizando procesos que ni siquiera funcionan manualmente?</h1><div class="scribble"></div></div></div>
+
+<div class="slide context-news" data-variant="context-news" style="display:none"><div class="paper"><div class="label">OBSERVACIÓN</div>
+  <h1>El 73% de los pilotos de IA no llegan a producción.</h1>
+  <div class="body">No por falta de modelo. Por falta de criterio operativo en el equipo que lo implementa.</div>
+  <div class="source">fuente: gartner 2025</div><div class="scribble"></div></div></div>
+
+<div class="slide context-split" data-variant="context-split" style="display:none"><div class="paper">
+  <div class="left"><h1>El problema no es la IA</h1></div>
+  <div class="right"><p>Es que automatizamos antes de entender. Velocidad sin criterio es caos a escala.</p></div></div></div>
+
+<div class="slide develop-number" data-variant="develop-number" style="display:none"><div class="paper"><div class="label">PUNTO CLAVE</div>
+  <div class="big">01</div><div class="point">Define qué significa "bien" antes de automatizar</div>
+  <div class="detail">Sin criterio claro, la IA amplifica el caos en vez de resolverlo.</div><div class="scribble"></div></div></div>
+
+<div class="slide develop-checklist" data-variant="develop-checklist" style="display:none"><div class="paper"><div class="label">CHECKLIST</div>
+  <h2>Antes de implementar IA en tu equipo</h2>
+  <div class="items"><div class="item"><b>01</b><span>Define "bien" para tu proceso</span></div><div class="item"><b>02</b><span>Mide el proceso manual primero</span></div><div class="item"><b>03</b><span>Define cuándo fallar es aceptable</span></div><div class="item"><b>04</b><span>Plan de reversión real</span></div></div><div class="scribble"></div></div></div>
+
+<div class="slide grid-4" data-variant="grid-4" style="display:none"><div class="paper"><div class="label">FRAMEWORK</div>
+  <div class="title">4 preguntas antes de automatizar</div>
+  <div class="cells"><div class="cell"><b>01</b><span>¿Funciona manualmente?</span></div><div class="cell"><b>02</b><span>¿Hay métrica de éxito?</span></div><div class="cell"><b>03</b><span>¿Qué pasa si falla?</span></div><div class="cell"><b>04</b><span>¿Puedes revertir?</span></div></div><div class="scribble"></div></div></div>
+
+<div class="slide grid-list" data-variant="grid-list" style="display:none"><div class="paper"><div class="label">PROCESO</div>
+  <h2>Orden correcto de implementación</h2>
+  <div class="rows"><div class="row"><b>01</b><span>Entender el proceso</span></div><div class="row"><b>02</b><span>Medir baseline</span></div><div class="row"><b>03</b><span>Definir criterio de éxito</span></div><div class="row"><b>04</b><span>Automatizar con control</span></div></div><div class="scribble"></div></div></div>
+
+<div class="slide take-inverted" data-variant="take-inverted" style="display:none"><div class="paper"><div class="label">MI POSTURA</div>
+  <h1>Automatizar sin criterio es escalar el caos. Y eso no es innovación.</h1><div class="scribble"></div></div></div>
+
+<div class="slide take-accent" data-variant="take-accent" style="display:none"><div class="paper"><div class="label">REFLEXIÓN DIRECTA</div>
+  <h1>La velocidad que te da la IA no sirve si tu equipo no sabe <u>a dónde va</u>.</h1><div class="scribble"></div></div></div>
+
+<div class="slide close-tags" data-variant="close-tags" style="display:none"><div class="paper"><div class="label">CONVERSEMOS</div>
+  <div class="tags">#AILeadership<br>#TechCriteria<br>#FounderNotes<br>#OperationalExcellence</div>
+  <div class="arrow">→</div><div class="scribble"></div></div></div>
+
+<div class="slide close-summary" data-variant="close-summary" style="display:none"><div class="paper"><div class="label">RESUMEN</div>
+  <h2>Lo esencial:</h2>
+  <div class="points"><div class="pt"><b>Criterio antes de velocidad</b><span>Define "bien" primero</span></div><div class="pt"><b>Mide lo manual</b><span>Baseline antes de automatizar</span></div><div class="pt"><b>Plan de fallo</b><span>¿Qué pasa cuando la IA se equivoca?</span></div></div>
+  <div class="cta">¿Tu equipo tiene criterio claro? → Comenta</div><div class="scribble"></div></div></div>
+
+<script>function showVariant(name){document.querySelectorAll('.slide').forEach(s=>s.style.display='none');document.querySelector(`[data-variant="${name}"]`).style.display=''}</script>
+<script src="/templates/preview.js"></script></body></html>

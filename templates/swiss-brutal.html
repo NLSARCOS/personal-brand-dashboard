@@ -1,0 +1,216 @@
+<!--
+  SWISS BRUTAL — 12 variantes de slide
+  Hermes: abre este archivo, cambia data-variant y el contenido, screenshot a 1080x1350
+  Variantes: hook-hero, hook-question, context-news, context-split, develop-number,
+             develop-checklist, grid-4, grid-list, take-inverted, take-accent, close-tags, close-summary
+-->
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.slide{width:1080px;height:1350px;background:#f5f1e8;color:#090909;font-family:Inter,sans-serif;position:relative;overflow:hidden;padding:60px}
+.num{position:absolute;top:48px;left:60px;font-family:'IBM Plex Mono',monospace;font-size:16px;color:#777;font-weight:600}
+.red{color:#e11d48}
+.rule{height:10px;background:#090909;width:55%;margin-bottom:40px}
+
+/* ═══ V1: HOOK HERO — frase gigante ═══ */
+.hook-hero h1{font-size:128px;line-height:.78;letter-spacing:-.08em;text-transform:uppercase;font-weight:900;margin-top:60px}
+.hook-hero .sub{position:absolute;bottom:60px;left:60px;right:60px;font-size:28px;font-weight:700;line-height:1.15;color:#444}
+
+/* ═══ V2: HOOK QUESTION — pregunta enorme ═══ */
+.hook-question{display:flex;align-items:center;justify-content:center;text-align:center}
+.hook-question h1{font-size:96px;line-height:.82;letter-spacing:-.07em;text-transform:uppercase;font-weight:900;max-width:90%}
+
+/* ═══ V3: CONTEXT NEWS — noticia + fuente ═══ */
+.context-news h1{font-size:82px;line-height:.8;letter-spacing:-.07em;text-transform:uppercase;font-weight:900;margin-top:60px;margin-bottom:40px}
+.context-news .body{font-size:28px;font-weight:500;line-height:1.3;color:#333;max-width:85%}
+.context-news .source{position:absolute;bottom:60px;left:60px;font-size:18px;color:#999;font-family:'IBM Plex Mono',monospace}
+
+/* ═══ V4: CONTEXT SPLIT — dos columnas ═══ */
+.context-split{display:grid;grid-template-columns:1fr 1fr;gap:0;padding:0}
+.context-split .left{background:#090909;color:#fff;padding:60px;display:flex;flex-direction:column;justify-content:center}
+.context-split .left h1{font-size:72px;line-height:.82;letter-spacing:-.06em;text-transform:uppercase;font-weight:900}
+.context-split .right{padding:60px;display:flex;flex-direction:column;justify-content:center}
+.context-split .right p{font-size:28px;font-weight:600;line-height:1.3}
+
+/* ═══ V5: DEVELOP NUMBER — número gigante + punto ═══ */
+.develop-number .big-num{font-size:360px;font-weight:900;line-height:.7;letter-spacing:-.1em;margin-top:40px}
+.develop-number .point{font-size:42px;font-weight:800;line-height:1.1;text-transform:uppercase;letter-spacing:-.04em;margin-top:30px;max-width:85%}
+.develop-number .detail{position:absolute;bottom:60px;left:60px;right:60px;font-size:22px;color:#666;font-weight:500;line-height:1.3}
+
+/* ═══ V6: DEVELOP CHECKLIST — items apilados ═══ */
+.develop-checklist h2{font-size:52px;font-weight:900;text-transform:uppercase;letter-spacing:-.05em;margin-top:40px;margin-bottom:50px}
+.develop-checklist .items{display:grid;gap:20px}
+.develop-checklist .item{display:grid;grid-template-columns:80px 1fr;align-items:start;border-top:3px solid #090909;padding-top:20px}
+.develop-checklist .item b{font-size:36px;font-weight:900}
+.develop-checklist .item span{font-size:26px;font-weight:700;line-height:1.2}
+
+/* ═══ V7: GRID 4 — cuadrícula 2×2 ═══ */
+.grid-4{padding:0}
+.grid-4 .title{padding:50px 60px 30px;font-size:48px;font-weight:900;text-transform:uppercase;letter-spacing:-.05em}
+.grid-4 .cells{display:grid;grid-template-columns:1fr 1fr;flex:1;position:absolute;left:0;right:0;bottom:0;top:260px}
+.grid-4 .cell{border:3px solid #090909;padding:40px;display:flex;flex-direction:column;justify-content:center}
+.grid-4 .cell.dark{background:#090909;color:#fff}
+.grid-4 .cell b{font-size:48px;font-weight:900;display:block;margin-bottom:10px}
+.grid-4 .cell span{font-size:22px;font-weight:700;line-height:1.2}
+
+/* ═══ V8: GRID LIST — lista numerada vertical ═══ */
+.grid-list h2{font-size:56px;font-weight:900;text-transform:uppercase;letter-spacing:-.05em;margin-top:40px;margin-bottom:50px;line-height:.85}
+.grid-list .rows{display:grid;gap:0}
+.grid-list .row{display:grid;grid-template-columns:100px 1fr;border-top:3px solid #090909;padding:28px 0;align-items:center}
+.grid-list .row b{font-size:42px;font-weight:900;color:#e11d48}
+.grid-list .row span{font-size:28px;font-weight:800;text-transform:uppercase;letter-spacing:-.03em}
+
+/* ═══ V9: TAKE INVERTED — fondo negro ═══ */
+.take-inverted{background:#090909;color:#f5f1e8}
+.take-inverted h1{font-size:72px;line-height:.82;letter-spacing:-.06em;text-transform:uppercase;font-weight:900;margin-top:60px}
+.take-inverted .label{font-size:18px;font-weight:900;color:#e11d48;text-transform:uppercase;letter-spacing:.1em;margin-top:40px;margin-bottom:20px}
+
+/* ═══ V10: TAKE ACCENT — fondo rojo ═══ */
+.take-accent{background:#e11d48;color:#fff}
+.take-accent .label{font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;margin-top:20px;margin-bottom:30px;color:rgba(255,255,255,.7)}
+.take-accent h1{font-size:68px;line-height:.82;letter-spacing:-.06em;text-transform:uppercase;font-weight:900}
+.take-accent .bold-word{color:#090909}
+
+/* ═══ V11: CLOSE TAGS — hashtags + flecha ═══ */
+.close-tags{display:flex;flex-direction:column;justify-content:space-between}
+.close-tags .tags{font-size:44px;font-weight:900;line-height:1.4;margin-top:80px}
+.close-tags .arrow{font-size:180px;text-align:right;color:#090909;line-height:1}
+
+/* ═══ V12: CLOSE SUMMARY — resumen 3 puntos ═══ */
+.close-summary h2{font-size:48px;font-weight:900;text-transform:uppercase;letter-spacing:-.04em;margin-top:40px;margin-bottom:50px}
+.close-summary .points{display:grid;gap:30px}
+.close-summary .pt{border-left:8px solid #090909;padding-left:30px}
+.close-summary .pt b{font-size:32px;font-weight:900;display:block;text-transform:uppercase}
+.close-summary .pt span{font-size:22px;color:#555;font-weight:600}
+.close-summary .cta{position:absolute;bottom:60px;left:60px;right:60px;font-size:24px;font-weight:800;color:#e11d48;text-transform:uppercase;letter-spacing:.06em}
+</style></head>
+<body>
+
+<!-- ═══ VARIANTE 1: HOOK HERO ═══ -->
+<div class="slide hook-hero" data-variant="hook-hero">
+  <div class="num">01</div>
+  <div class="rule"></div>
+  <h1>SI TU <span class="red">AGENTE</span> PUEDE SALTARSE UNA POLICY,</h1>
+  <div class="sub">no tienes automatización: tienes una excepción esperando producción.</div>
+</div>
+
+<!-- ═══ VARIANTE 2: HOOK QUESTION ═══ -->
+<div class="slide hook-question" data-variant="hook-question" style="display:none">
+  <div class="num">01</div>
+  <h1>¿QUÉ PASA CUANDO TU <span class="red">IA</span> TOMA UNA DECISIÓN QUE NO PUEDES REVERTIR?</h1>
+</div>
+
+<!-- ═══ VARIANTE 3: CONTEXT NEWS ═══ -->
+<div class="slide context-news" data-variant="context-news" style="display:none">
+  <div class="num">02</div>
+  <div class="rule"></div>
+  <h1>HOY APARECIÓ OTRA <span class="red">SEÑAL</span> QUE VALE MÁS QUE MIL DISCURSOS</h1>
+  <div class="body">OpenClaw publicó un parche por vulnerabilidades que permitían policy bypass en frameworks de agentes.</div>
+  <div class="source">fuente: openclaw.dev — 2025.04</div>
+</div>
+
+<!-- ═══ VARIANTE 4: CONTEXT SPLIT ═══ -->
+<div class="slide context-split" data-variant="context-split" style="display:none">
+  <div class="left">
+    <div class="num" style="color:#777">03</div>
+    <h1>EL RIESGO NO ESTÁ EN EL MODELO</h1>
+  </div>
+  <div class="right">
+    <p>No importa si detrás corre GPT-5.5, Claude 4 o Llama 4: si el framework puede <strong>evadir controles</strong>, el riesgo no está en el benchmark del modelo, sino en la orquestación.</p>
+  </div>
+</div>
+
+<!-- ═══ VARIANTE 5: DEVELOP NUMBER ═══ -->
+<div class="slide develop-number" data-variant="develop-number" style="display:none">
+  <div class="num">05</div>
+  <div class="big-num">01</div>
+  <div class="point">DEFINE POLÍTICAS <span class="red">FUERA DEL PROMPT</span>, NO ENTERRADAS EN TEXTO LIBRE.</div>
+  <div class="detail">Las políticas deben ser declarativas, auditables y versionadas — no instrucciones embebidas que el modelo interpreta como sugerencia.</div>
+</div>
+
+<!-- ═══ VARIANTE 6: DEVELOP CHECKLIST ═══ -->
+<div class="slide develop-checklist" data-variant="develop-checklist" style="display:none">
+  <div class="num">04</div>
+  <div class="rule"></div>
+  <h2>MI <span class="red">CHECKLIST</span> PARA EQUIPOS QUE YA PRUEBAN AGENTES EN SERIO:</h2>
+  <div class="items">
+    <div class="item"><b>01</b><span>Políticas fuera del prompt</span></div>
+    <div class="item"><b>02</b><span>Permisos por herramienta</span></div>
+    <div class="item"><b>03</b><span>Registro de cada llamada sensible</span></div>
+    <div class="item"><b>04</b><span>Kill switch operativo</span></div>
+  </div>
+</div>
+
+<!-- ═══ VARIANTE 7: GRID 4 ═══ -->
+<div class="slide grid-4" data-variant="grid-4" style="display:none">
+  <div class="num">07</div>
+  <div class="title">4 CONTROLES ANTES DE AUTONOMÍA</div>
+  <div class="cells">
+    <div class="cell"><b>01</b><span>Define éxito antes de lanzar</span></div>
+    <div class="cell dark"><b>02</b><span>Separa leer de escribir de ejecutar</span></div>
+    <div class="cell dark"><b>03</b><span>Registra contexto y decisión</span></div>
+    <div class="cell"><b>04</b><span>Kill switch antes de autonomía</span></div>
+  </div>
+</div>
+
+<!-- ═══ VARIANTE 8: GRID LIST ═══ -->
+<div class="slide grid-list" data-variant="grid-list" style="display:none">
+  <div class="num">08</div>
+  <div class="rule"></div>
+  <h2>FRAMEWORK MÍNIMO DE <span class="red">GOBERNANZA</span></h2>
+  <div class="rows">
+    <div class="row"><b>01</b><span>Definir métrica de éxito</span></div>
+    <div class="row"><b>02</b><span>Separar permisos por herramienta</span></div>
+    <div class="row"><b>03</b><span>Registrar cada decisión del agente</span></div>
+    <div class="row"><b>04</b><span>Agregar kill switch operativo</span></div>
+    <div class="row"><b>05</b><span>Evaluar fuera del entorno demo</span></div>
+  </div>
+</div>
+
+<!-- ═══ VARIANTE 9: TAKE INVERTED ═══ -->
+<div class="slide take-inverted" data-variant="take-inverted" style="display:none">
+  <div class="num" style="color:#777">09</div>
+  <div class="label">MI TAKE CALIENTE</div>
+  <h1>ESTAMOS ENTRANDO EN UNA ETAPA DONDE EL VALOR <span class="red">NO SERÁ "TENER AGENTES"</span>. SINO PODER GOBERNARLOS SIN IMPROVISAR.</h1>
+</div>
+
+<!-- ═══ VARIANTE 10: TAKE ACCENT ═══ -->
+<div class="slide take-accent" data-variant="take-accent" style="display:none">
+  <div class="num" style="color:rgba(255,255,255,.5)">09</div>
+  <div class="label">OPINIÓN DIRECTA</div>
+  <h1>SI NO PUEDES EXPLICAR QUÉ HACE TU AGENTE EN <span class="bold-word">30 SEGUNDOS</span>, NO LO PONGAS EN PRODUCCIÓN.</h1>
+</div>
+
+<!-- ═══ VARIANTE 11: CLOSE TAGS ═══ -->
+<div class="slide close-tags" data-variant="close-tags" style="display:none">
+  <div class="num">12</div>
+  <div class="rule"></div>
+  <div class="tags">#AgentSecurity<br>#AIFrameworks<br>#CybersecurityAI<br>#PolicyBypass<br>#AIAgents</div>
+  <div class="arrow">→</div>
+</div>
+
+<!-- ═══ VARIANTE 12: CLOSE SUMMARY ═══ -->
+<div class="slide close-summary" data-variant="close-summary" style="display:none">
+  <div class="num">10</div>
+  <div class="rule"></div>
+  <h2>LO QUE DEBERÍAS LLEVARTE DE ESTO:</h2>
+  <div class="points">
+    <div class="pt"><b>Políticas declarativas</b><span>No embebidas en prompts</span></div>
+    <div class="pt"><b>Permisos granulares</b><span>Leer ≠ escribir ≠ ejecutar</span></div>
+    <div class="pt"><b>Observabilidad real</b><span>Logs de cada decisión del agente</span></div>
+  </div>
+  <div class="cta">¿YA IMPLEMENTASTE ALGUNO? → COMENTA</div>
+</div>
+
+<script>
+// Hermes: para mostrar una variante específica, usa:
+// showVariant('hook-hero') o showVariant('develop-number')
+function showVariant(name){
+  document.querySelectorAll('.slide').forEach(s=>s.style.display='none');
+  document.querySelector(`[data-variant="${name}"]`).style.display='';
+}
+// Para generar screenshot de todas las variantes en loop:
+// const variants = [...document.querySelectorAll('.slide')].map(s=>s.dataset.variant);
+</script>
+<script src="/templates/preview.js"></script></body></html>

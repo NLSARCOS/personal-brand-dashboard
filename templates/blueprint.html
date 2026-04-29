@@ -1,0 +1,116 @@
+<!-- BLUEPRINT — 12 variantes -->
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.slide{width:1080px;height:1350px;background:#050812;color:#dffcff;font-family:'IBM Plex Mono',monospace;position:relative;overflow:hidden;padding:60px}
+.slide:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(34,211,238,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.06) 1px,transparent 1px);background-size:42px 42px;pointer-events:none}
+.num{position:absolute;top:48px;left:60px;font-size:13px;color:#22d3ee;letter-spacing:.12em}
+.label{font-size:14px;color:rgba(34,211,238,.5);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:20px;margin-top:40px}
+.cyan{color:#22d3ee}
+.box{border:1.5px solid #22d3ee;background:rgba(8,47,73,.5);box-shadow:0 0 20px rgba(34,211,238,.1);border-radius:10px;padding:24px;position:relative}
+.glow{text-shadow:0 0 40px rgba(34,211,238,.3)}
+
+.hook-hero h1{font-size:56px;line-height:1;letter-spacing:-.04em;margin-top:80px;font-weight:600;position:relative}
+.hook-hero .diagram{position:absolute;left:60px;right:60px;bottom:60px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+.hook-question{display:flex;align-items:center;justify-content:center;text-align:center}
+.hook-question h1{font-size:52px;line-height:1;letter-spacing:-.04em;font-weight:600;max-width:88%;position:relative}
+
+.context-news h1{font-size:48px;line-height:1;letter-spacing:-.03em;font-weight:600;margin-top:80px;position:relative}
+.context-news .body{font-size:22px;color:#7ec8d4;margin-top:30px;line-height:1.4;max-width:85%;position:relative}
+.context-news .source{position:absolute;bottom:60px;left:60px;font-size:14px;color:#22d3ee}
+
+.context-split{display:grid;grid-template-rows:1fr 1fr;gap:0;padding:0}
+.context-split .top-s{padding:60px;display:flex;align-items:flex-end}
+.context-split .top-s h1{font-size:48px;line-height:1;letter-spacing:-.03em;font-weight:600;position:relative}
+.context-split .bot-s{padding:60px;border-top:1px solid rgba(34,211,238,.15)}
+.context-split .bot-s p{font-size:22px;color:#7ec8d4;line-height:1.4;position:relative}
+
+.develop-number .big{font-size:280px;font-weight:700;line-height:.6;color:rgba(34,211,238,.06);letter-spacing:-.08em;position:relative}
+.develop-number .point{font-size:38px;font-weight:600;letter-spacing:-.03em;margin-top:-40px;position:relative;line-height:1.05;max-width:85%}
+.develop-number .detail{position:absolute;bottom:60px;left:60px;right:60px;font-size:18px;color:#5a9baa;line-height:1.35}
+
+.develop-checklist h2{font-size:38px;font-weight:600;letter-spacing:-.03em;margin-top:60px;margin-bottom:40px;line-height:1;position:relative}
+.develop-checklist .items{display:grid;gap:12px;position:relative}
+.develop-checklist .item{display:grid;grid-template-columns:60px 1fr;align-items:center}
+.develop-checklist .item b{font-size:22px;color:#22d3ee;font-weight:700}
+.develop-checklist .item span{font-size:20px;font-weight:500}
+
+.grid-4 .title{font-size:36px;font-weight:600;letter-spacing:-.03em;margin-top:60px;margin-bottom:30px;line-height:1;position:relative}
+.grid-4 .cells{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
+.grid-4 .cell b{display:block;font-size:28px;color:#22d3ee;margin-bottom:8px;font-weight:700}
+.grid-4 .cell span{font-size:18px;color:#7ec8d4;line-height:1.2}
+
+.grid-list h2{font-size:36px;font-weight:600;letter-spacing:-.03em;margin-top:60px;margin-bottom:30px;line-height:1;position:relative}
+.grid-list .rows{display:grid;gap:0;position:relative}
+.grid-list .row{display:grid;grid-template-columns:70px 1fr;border-top:1px solid rgba(34,211,238,.15);padding:22px 0;align-items:center}
+.grid-list .row b{font-size:26px;color:#22d3ee;font-weight:700}
+.grid-list .row span{font-size:22px;font-weight:500}
+
+.take-inverted{background:#22d3ee;color:#050812}
+.take-inverted:before{background-image:linear-gradient(rgba(5,8,18,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(5,8,18,.08) 1px,transparent 1px)}
+.take-inverted .label{color:rgba(5,8,18,.5)}.take-inverted h1{font-size:48px;font-weight:700;line-height:1;letter-spacing:-.03em;position:relative}
+
+.take-accent{background:linear-gradient(135deg,#0e3f56,#0a2740)}
+.take-accent .label{color:#22d3ee}
+.take-accent h1{font-size:48px;font-weight:600;line-height:1;letter-spacing:-.03em;position:relative}
+
+.close-tags .tags{font-size:36px;font-weight:600;line-height:1.6;color:#22d3ee;margin-top:100px;position:relative}
+.close-tags .arrow{position:absolute;bottom:60px;right:60px;font-size:140px;color:rgba(34,211,238,.1)}
+
+.close-summary h2{font-size:36px;font-weight:600;letter-spacing:-.03em;margin-top:60px;margin-bottom:40px;line-height:1;position:relative}
+.close-summary .points{display:grid;gap:20px;position:relative}
+.close-summary .pt{border-left:3px solid #22d3ee;padding-left:20px}
+.close-summary .pt b{font-size:22px;font-weight:700;display:block}.close-summary .pt span{font-size:16px;color:#5a9baa}
+.close-summary .cta{position:absolute;bottom:60px;left:60px;font-size:18px;font-weight:600;color:#22d3ee}
+</style></head><body>
+
+<div class="slide hook-hero" data-variant="hook-hero"><div class="num">01_ARCH</div><div class="label">ARQUITECTURA DE DECISIÓN</div>
+  <h1 class="glow">Antes de lanzar IA, define dónde se <span class="cyan">rompe</span>.</h1>
+  <div class="diagram"><div class="box"><b>01_INPUT</b><br>datos + contexto</div><div class="box"><b>02_POLICY</b><br>límites + permisos</div><div class="box"><b>03_MODEL</b><br>respuesta validada</div><div class="box"><b>04_OBSERVE</b><br>trazas + alertas</div></div>
+</div>
+
+<div class="slide hook-question" data-variant="hook-question" style="display:none"><div class="num">01</div>
+  <h1 class="glow">¿Tu pipeline de IA tiene <span class="cyan">observabilidad</span> real?</h1></div>
+
+<div class="slide context-news" data-variant="context-news" style="display:none"><div class="num">02</div><div class="label">SEÑAL TÉCNICA</div>
+  <h1>Nuevo vector de <span class="cyan">bypass</span> en frameworks de agentes</h1>
+  <div class="body">OpenClaw publicó un parche crítico. El riesgo no está en el modelo sino en la orquestación.</div><div class="source">src: openclaw.dev</div></div>
+
+<div class="slide context-split" data-variant="context-split" style="display:none">
+  <div class="top-s"><div class="num">03</div><h1>El riesgo está en la <span class="cyan">orquestación</span></h1></div>
+  <div class="bot-s"><p>Si el framework puede evadir controles, no importa qué modelo uses. El problema es estructural.</p></div></div>
+
+<div class="slide develop-number" data-variant="develop-number" style="display:none"><div class="num">05</div>
+  <div class="big">01</div><div class="point">Políticas <span class="cyan">declarativas</span>, no embebidas en prompts</div>
+  <div class="detail">Deben ser auditables, versionadas y externas al contexto del modelo.</div></div>
+
+<div class="slide develop-checklist" data-variant="develop-checklist" style="display:none"><div class="num">04</div><div class="label">CHECKLIST TÉCNICO</div>
+  <h2>Controles antes de <span class="cyan">autonomía</span></h2>
+  <div class="items"><div class="item box"><b>01</b><span>Políticas declarativas</span></div><div class="item box"><b>02</b><span>Permisos granulares</span></div><div class="item box"><b>03</b><span>Trazas de decisión</span></div><div class="item box"><b>04</b><span>Kill switch</span></div></div></div>
+
+<div class="slide grid-4" data-variant="grid-4" style="display:none"><div class="num">07</div><div class="label">COMPONENTES</div>
+  <div class="title">Stack mínimo de <span class="cyan">gobernanza</span></div>
+  <div class="cells"><div class="cell box"><b>01</b><span>Policy engine</span></div><div class="cell box"><b>02</b><span>Auth layer</span></div><div class="cell box"><b>03</b><span>Trace store</span></div><div class="cell box"><b>04</b><span>Kill switch</span></div></div></div>
+
+<div class="slide grid-list" data-variant="grid-list" style="display:none"><div class="num">08</div><div class="label">PIPELINE</div>
+  <h2>Orden de <span class="cyan">implementación</span></h2>
+  <div class="rows"><div class="row"><b>01</b><span>Definir métricas</span></div><div class="row"><b>02</b><span>Instrumentar trazas</span></div><div class="row"><b>03</b><span>Declarar políticas</span></div><div class="row"><b>04</b><span>Activar kill switch</span></div></div></div>
+
+<div class="slide take-inverted" data-variant="take-inverted" style="display:none"><div class="num" style="color:rgba(5,8,18,.3)">09</div><div class="label">HOT TAKE</div>
+  <h1>Si no puedes apagar tu agente en 30 segundos, no lo pongas en producción.</h1></div>
+
+<div class="slide take-accent" data-variant="take-accent" style="display:none"><div class="num">09</div><div class="label">OPINIÓN</div>
+  <h1>El benchmark del modelo no importa si la <span class="cyan">orquestación</span> es un agujero.</h1></div>
+
+<div class="slide close-tags" data-variant="close-tags" style="display:none"><div class="num">12</div>
+  <div class="tags">#SystemDesign<br>#AIArchitecture<br>#Observability<br>#AgentSecurity</div><div class="arrow">→</div></div>
+
+<div class="slide close-summary" data-variant="close-summary" style="display:none"><div class="num">10</div><div class="label">RESUMEN</div>
+  <h2>Takeaways:</h2>
+  <div class="points"><div class="pt"><b>Políticas externas</b><span>Fuera del prompt</span></div><div class="pt"><b>Permisos granulares</b><span>Read ≠ Write ≠ Execute</span></div><div class="pt"><b>Observabilidad</b><span>Trazas de cada decisión</span></div></div>
+  <div class="cta">¿Tu stack tiene esto? →</div></div>
+
+<script>function showVariant(name){document.querySelectorAll('.slide').forEach(s=>s.style.display='none');document.querySelector(`[data-variant="${name}"]`).style.display=''}</script>
+<script src="/templates/preview.js"></script></body></html>

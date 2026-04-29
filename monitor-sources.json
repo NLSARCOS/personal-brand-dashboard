@@ -1,0 +1,66 @@
+[
+  {
+    "id": "openai-blog",
+    "name": "OpenAI Blog",
+    "url": "https://openai.com/blog/rss.xml",
+    "type": "rss",
+    "keywords": ["agent", "agents", "model", "api", "safety", "release", "launch", "gpt", "o1", "o3", "function calling", "orchestration"],
+    "enabled": true
+  },
+  {
+    "id": "anthropic-news",
+    "name": "Anthropic News",
+    "url": "https://www.anthropic.com/news/rss.xml",
+    "type": "rss",
+    "keywords": ["claude", "constitutional", "safety", "agent", "agents", "computer use", "tool use", "mcp"],
+    "enabled": true
+  },
+  {
+    "id": "google-deepmind",
+    "name": "Google DeepMind Blog",
+    "url": "https://deepmind.google/blog/rss.xml",
+    "type": "rss",
+    "keywords": ["gemini", "agent", "agents", "multimodal", "reasoning", "safety", "alphafold", "robotics"],
+    "enabled": true
+  },
+  {
+    "id": "huggingface-blog",
+    "name": "Hugging Face Blog",
+    "url": "https://huggingface.co/blog/feed.xml",
+    "type": "rss",
+    "keywords": ["transformers", "agent", "agents", "llm", "open source", "fine-tuning", "inference", "deployment"],
+    "enabled": true
+  },
+  {
+    "id": "langchain-blog",
+    "name": "LangChain Blog",
+    "url": "https://blog.langchain.dev/rss/",
+    "type": "rss",
+    "keywords": ["langchain", "agent", "agents", "orchestration", "workflow", "llm", "rag", "tool"],
+    "enabled": true
+  },
+  {
+    "id": "github-security",
+    "name": "GitHub Security Advisories",
+    "url": "https://github.com/security-advisories/rss",
+    "type": "rss",
+    "keywords": ["ai", "llm", "prompt injection", "rce", "cve", "vulnerability", "security", "exploit"],
+    "enabled": true
+  },
+  {
+    "id": "arxiv-ai",
+    "name": "arXiv CS.AI",
+    "url": "http://export.arxiv.org/rss/cs.AI",
+    "type": "rss",
+    "keywords": ["agent", "agents", "llm", "reasoning", "orchestration", "safety", "alignment", "multi-agent"],
+    "enabled": true
+  },
+  {
+    "id": "hacker-news-ai",
+    "name": "Hacker News — AI filter",
+    "url": "https://hnrss.org/newest?q=AI+OR+LLM+OR+agent+OR+LangChain+OR+OpenAI",
+    "type": "rss",
+    "keywords": ["agent", "agents", "llm", "openai", "launch", "release", "show hn", "security", "vulnerability"],
+    "enabled": true
+  }
+]
