@@ -236,6 +236,8 @@ Cada una puede usarse según el tipo de contenido, pero manteniendo el lenguaje 
 ### Composición
 - evitar grandes zonas muertas sin intención
 - el contenido debe ocupar bien el espacio
+- priorizar layouts más densos cuando el mensaje lo pida
+- evitar demasiado espacio vacío en el centro del canvas
 - cada slide debe sentirse diseñado, no vacío
 - la pieza debe tener peso visual desde móvil
 

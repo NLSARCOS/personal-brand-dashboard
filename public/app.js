@@ -595,16 +595,25 @@ async function selectProposal(id){
 }
 
 async function approveProposal(id){
-  if(!confirm('¿Aprobar y crear post?')) return;
+  const detail=$('#proposalDetail');
+  if(detail){
+    detail.innerHTML='<div class="empty">Aprobando propuesta y creando post...</div>';
+  }
   const r=await api('/api/proposals/'+id+'/approve',{method:'PUT'});
-  alert(`✅ Post creado (ID ${r.postId})`);
-  await loadProposals(); await loadStats(); await loadPosts();
+  S.selectedProposalId=null;
+  await loadProposals();
+  await loadStats();
+  await loadPosts();
+  $('#proposalDetail').innerHTML=`<div class="empty">✅ Propuesta aprobada correctamente. Post creado (ID ${r.postId}). <a href="#" onclick="switchTab('posts');selectPost(${r.postId});return false">Ver post</a></div>`;
 }
 
 async function rejectProposal(id){
-  if(!confirm('¿Rechazar esta propuesta?')) return;
+  $('#proposalDetail').innerHTML='<div class="empty">Rechazando propuesta...</div>';
   await api('/api/proposals/'+id,{method:'PUT',body:JSON.stringify({status:'rejected'})});
+  S.selectedProposalId=null;
   await loadProposals();
+  await loadStats();
+  $('#proposalDetail').innerHTML='<div class="empty">✅ Propuesta rechazada correctamente.</div>';
 }
 
 function editAndApprove(id){
@@ -622,9 +631,13 @@ function editAndApprove(id){
 
 async function confirmEditApprove(id){
   const copy=$('#propCopyEdit')?.value||'';
-  await api('/api/proposals/'+id+'/approve',{method:'PUT',body:JSON.stringify({suggested_copy:copy})});
-  alert('✅ Post creado con copia editada');
-  await loadProposals(); await loadStats(); await loadPosts();
+  $('#proposalDetail').innerHTML='<div class="empty">Guardando cambios y creando post...</div>';
+  const r=await api('/api/proposals/'+id+'/approve',{method:'PUT',body:JSON.stringify({suggested_copy:copy})});
+  S.selectedProposalId=null;
+  await loadProposals();
+  await loadStats();
+  await loadPosts();
+  $('#proposalDetail').innerHTML=`<div class="empty">✅ Propuesta aprobada con copia editada. Post creado (ID ${r.postId}). <a href="#" onclick="switchTab('posts');selectPost(${r.postId});return false">Ver post</a></div>`;
 }
 
 async function showAlertHistory(){
